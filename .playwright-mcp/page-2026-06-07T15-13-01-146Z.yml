@@ -1,0 +1,359 @@
+- generic [active] [ref=e1]:
+  - link "Aller au contenu" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "T2SR, accueil" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: T2SR
+      - navigation "Navigation principale" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Accueil" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "Services" [ref=e12] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e13]:
+            - link "Réalisations" [ref=e14] [cursor=pointer]:
+              - /url: /realisations
+          - listitem [ref=e15]:
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e17]:
+            - link "Demander un devis" [ref=e18] [cursor=pointer]:
+              - /url: /demande-de-devis
+  - main [ref=e19]:
+    - generic [ref=e22]:
+      - generic [ref=e23]: Savigny-le-Temple · Île-de-France
+      - 'heading "T2SR : peinture, rénovation et travaux du bâtiment" [level=1] [ref=e24]'
+      - paragraph [ref=e25]: Travaux intérieurs et extérieurs à Savigny-le-Temple et en Île-de-France.
+      - generic [ref=e26]:
+        - link "Demander un devis" [ref=e27] [cursor=pointer]:
+          - /url: /demande-de-devis
+        - link "Voir les services" [ref=e28] [cursor=pointer]:
+          - /url: /services
+      - list [ref=e29]:
+        - listitem [ref=e30]: ✓ Devis clair
+        - listitem [ref=e31]: ✓ Intérieur & extérieur
+        - listitem [ref=e32]: ✓ Accompagnement personnalisé
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: Pourquoi T2SR
+        - heading "Qui réalise vos travaux" [level=2] [ref=e37]
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e41]: Devis clair
+          - paragraph [ref=e43]: Une estimation détaillée et transparente avant de démarrer.
+        - generic [ref=e44]:
+          - generic [ref=e46]: Intérieur & extérieur
+          - paragraph [ref=e48]: Travaux de peinture et rénovation, dedans comme dehors.
+        - generic [ref=e49]:
+          - generic [ref=e51]: Accompagnement personnalisé
+          - paragraph [ref=e53]: Un interlocuteur à l'écoute de votre projet.
+        - generic [ref=e54]:
+          - generic [ref=e56]: Photos pour estimer
+          - paragraph [ref=e58]: Envoyez vos photos pour une première estimation à distance.
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]: Simple et rapide
+        - heading "Comment obtenir un devis ?" [level=2] [ref=e63]
+        - paragraph [ref=e64]: Six étapes pour décrire votre projet et recevoir une estimation.
+      - list [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e68]: "1"
+          - generic [ref=e70]: Choisir le type de travaux
+        - generic [ref=e71]:
+          - generic [ref=e73]: "2"
+          - generic [ref=e75]: Décrire le projet
+        - generic [ref=e76]:
+          - generic [ref=e78]: "3"
+          - generic [ref=e80]: Indiquer les pièces concernées
+        - generic [ref=e81]:
+          - generic [ref=e83]: "4"
+          - generic [ref=e85]: Préciser la surface
+        - generic [ref=e86]:
+          - generic [ref=e88]: "5"
+          - generic [ref=e90]: Ajouter des photos
+        - generic [ref=e91]:
+          - generic [ref=e93]: "6"
+          - generic [ref=e95]: Recevoir un retour
+      - link "Démarrer ma demande" [ref=e97] [cursor=pointer]:
+        - /url: /demande-de-devis
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]: Nos prestations
+        - heading "Des services pour tous vos travaux" [level=2] [ref=e102]
+        - paragraph [ref=e103]: Peinture, rénovation, vitrerie, installation de cuisine et petits travaux du bâtiment.
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e108]: Peinture intérieure
+          - paragraph [ref=e110]: Mise en peinture de murs, plafonds et boiseries pour rafraîchir ou transformer vos pièces.
+          - link "Demander ce service" [ref=e112] [cursor=pointer]:
+            - /url: /demande-de-devis?service=peinture-interieure
+        - generic [ref=e113]:
+          - generic [ref=e116]: Peinture extérieure
+          - paragraph [ref=e118]: Protection et embellissement des surfaces extérieures exposées aux intempéries.
+          - link "Demander ce service" [ref=e120] [cursor=pointer]:
+            - /url: /demande-de-devis?service=peinture-exterieure
+        - generic [ref=e121]:
+          - generic [ref=e124]: Vitrerie
+          - paragraph [ref=e126]: Travaux de vitrerie pour vos fenêtres, portes et surfaces vitrées.
+          - link "Demander ce service" [ref=e128] [cursor=pointer]:
+            - /url: /demande-de-devis?service=vitrerie
+        - generic [ref=e129]:
+          - generic [ref=e132]: Rénovation intérieure
+          - paragraph [ref=e134]: Rénovation complète ou partielle de vos espaces intérieurs.
+          - link "Demander ce service" [ref=e136] [cursor=pointer]:
+            - /url: /demande-de-devis?service=renovation-interieure
+        - generic [ref=e137]:
+          - generic [ref=e140]: Installation de cuisine
+          - paragraph [ref=e142]: Montage et installation d'éléments de cuisine et finitions associées.
+          - link "Demander ce service" [ref=e144] [cursor=pointer]:
+            - /url: /demande-de-devis?service=installation-cuisine
+        - generic [ref=e145]:
+          - generic [ref=e148]: Revêtements muraux
+          - paragraph [ref=e150]: Pose de revêtements muraux pour décorer et protéger vos murs.
+          - link "Demander ce service" [ref=e152] [cursor=pointer]:
+            - /url: /demande-de-devis?service=revetements-muraux
+      - link "Voir tous les services" [ref=e154] [cursor=pointer]:
+        - /url: /services
+    - generic [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]: Avant / Après
+        - heading "Le rendu de nos travaux" [level=2] [ref=e159]
+        - paragraph [ref=e160]: Les visuels ci-dessous sont des emplacements réservés. Les photos de chantiers réels seront ajoutées prochainement.
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]: Avant
+              - generic [ref=e166]: Photo à venir
+            - generic [ref=e167]:
+              - generic [ref=e168]: Après
+              - generic [ref=e169]: Photo à venir
+          - generic [ref=e170]:
+            - generic [ref=e171]: Peinture
+            - generic [ref=e172]: Séjour
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e176]: Avant
+              - generic [ref=e177]: Photo à venir
+            - generic [ref=e178]:
+              - generic [ref=e179]: Après
+              - generic [ref=e180]: Photo à venir
+          - generic [ref=e181]:
+            - generic [ref=e182]: Rénovation
+            - generic [ref=e183]: Pièce à vivre
+    - generic [ref=e185]:
+      - generic [ref=e186]:
+        - generic [ref=e187]: Demande de devis
+        - heading "Décrivez votre projet" [level=2] [ref=e188]
+        - paragraph [ref=e189]: "Remplissez le formulaire : nous revenons vers vous avec une première estimation. Champs marqués * obligatoires."
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - text: Ne pas remplir
+          - textbox [ref=e192]
+        - group "Vos coordonnées" [ref=e193]:
+          - generic [ref=e194]: Vos coordonnées
+          - generic [ref=e195]:
+            - generic [ref=e196]:
+              - group [ref=e197]:
+                - generic [ref=e198]:
+                  - text: Nom complet
+                  - generic [ref=e199]: "*"
+                - textbox "Nom complet *" [ref=e200]
+              - group [ref=e201]:
+                - generic [ref=e202]:
+                  - text: Téléphone
+                  - generic [ref=e203]: "*"
+                - textbox "Téléphone *" [ref=e204]
+              - group [ref=e205]:
+                - generic [ref=e206]:
+                  - text: Email
+                  - generic [ref=e207]: "*"
+                - textbox "Email *" [ref=e208]
+              - group [ref=e209]:
+                - generic [ref=e210]:
+                  - text: Ville
+                  - generic [ref=e211]: "*"
+                - textbox "Ville *" [ref=e212]
+            - group [ref=e213]:
+              - generic [ref=e214]: Adresse du chantier
+              - textbox "Adresse du chantier" [ref=e215]
+        - group "Votre projet" [ref=e216]:
+          - generic [ref=e217]: Votre projet
+          - generic [ref=e218]:
+            - group [ref=e219]:
+              - generic [ref=e220]:
+                - text: Type de travaux
+                - generic [ref=e221]: "*"
+              - generic [ref=e222]:
+                - combobox "Type de travaux *" [ref=e223]:
+                  - option "Sélectionnez un type" [selected]
+                  - option "Peinture intérieure"
+                  - option "Peinture extérieure"
+                  - option "Vitrerie"
+                  - option "Rénovation intérieure"
+                  - option "Installation de cuisine"
+                  - option "Revêtements muraux"
+                  - option "Revêtements de sols"
+                  - option "Travaux de finition"
+                  - option "Petits travaux de bâtiment"
+                  - option "Travaux extérieurs"
+                - img
+            - group "Pièces concernées" [ref=e224]:
+              - generic [ref=e225]: Pièces concernées
+              - generic [ref=e226]:
+                - generic [ref=e227]:
+                  - checkbox "Cuisine" [ref=e228]
+                  - generic [ref=e229]: Cuisine
+                - generic [ref=e230]:
+                  - checkbox "Salon" [ref=e231]
+                  - generic [ref=e232]: Salon
+                - generic [ref=e233]:
+                  - checkbox "Chambre" [ref=e234]
+                  - generic [ref=e235]: Chambre
+                - generic [ref=e236]:
+                  - checkbox "Salle de bain" [ref=e237]
+                  - generic [ref=e238]: Salle de bain
+                - generic [ref=e239]:
+                  - checkbox "WC" [ref=e240]
+                  - generic [ref=e241]: WC
+                - generic [ref=e242]:
+                  - checkbox "Couloir" [ref=e243]
+                  - generic [ref=e244]: Couloir
+                - generic [ref=e245]:
+                  - checkbox "Escalier" [ref=e246]
+                  - generic [ref=e247]: Escalier
+                - generic [ref=e248]:
+                  - checkbox "Garage" [ref=e249]
+                  - generic [ref=e250]: Garage
+                - generic [ref=e251]:
+                  - checkbox "Cave" [ref=e252]
+                  - generic [ref=e253]: Cave
+                - generic [ref=e254]:
+                  - checkbox "Façade" [ref=e255]
+                  - generic [ref=e256]: Façade
+                - generic [ref=e257]:
+                  - checkbox "Terrasse" [ref=e258]
+                  - generic [ref=e259]: Terrasse
+                - generic [ref=e260]:
+                  - checkbox "Bureau" [ref=e261]
+                  - generic [ref=e262]: Bureau
+                - generic [ref=e263]:
+                  - checkbox "Commerce" [ref=e264]
+                  - generic [ref=e265]: Commerce
+                - generic [ref=e266]:
+                  - checkbox "Autre" [ref=e267]
+                  - generic [ref=e268]: Autre
+            - generic [ref=e269]:
+              - group [ref=e270]:
+                - generic [ref=e271]: Surface approximative
+                - generic [ref=e272]:
+                  - combobox "Surface approximative" [ref=e273]:
+                    - option "Non précisé" [selected]
+                    - option "Moins de 10 m²"
+                    - option "10 à 30 m²"
+                    - option "30 à 60 m²"
+                    - option "60 à 100 m²"
+                    - option "Plus de 100 m²"
+                    - option "Je ne sais pas"
+                  - img
+              - group [ref=e274]:
+                - generic [ref=e275]: État du support
+                - generic [ref=e276]:
+                  - combobox "État du support" [ref=e277]:
+                    - option "Non précisé" [selected]
+                    - option "Neuf"
+                    - option "Bon état"
+                    - option "À rafraîchir"
+                    - option "Abîmé"
+                    - option "À rénover complètement"
+                  - img
+              - group [ref=e278]:
+                - generic [ref=e279]: Budget estimé
+                - generic [ref=e280]:
+                  - combobox "Budget estimé" [ref=e281]:
+                    - option "Non précisé" [selected]
+                    - option "Moins de 1 000 €"
+                    - option "1 000 € à 3 000 €"
+                    - option "3 000 € à 10 000 €"
+                    - option "Plus de 10 000 €"
+                    - option "À définir"
+                  - img
+              - group [ref=e282]:
+                - generic [ref=e283]: Délai souhaité
+                - generic [ref=e284]:
+                  - combobox "Délai souhaité" [ref=e285]:
+                    - option "Non précisé" [selected]
+                    - option "Urgent"
+                    - option "Sous 1 mois"
+                    - option "Sous 3 mois"
+                    - option "Flexible"
+                  - img
+            - group [ref=e286]:
+              - generic [ref=e287]:
+                - text: Description du projet
+                - generic [ref=e288]: "*"
+              - textbox "Description du projet *" [ref=e289]:
+                - /placeholder: "Décrivez votre projet : pièces, état actuel, attentes…"
+            - group [ref=e290]:
+              - generic [ref=e291]: Photos (optionnel)
+              - button "Photos (optionnel)" [ref=e292]
+              - paragraph [ref=e293]: JPG, PNG ou WebP. 5 fichiers maximum, 5 Mo par fichier.
+        - generic [ref=e294]:
+          - checkbox "J'accepte que mes données soient utilisées pour traiter ma demande de devis. * En savoir plus." [ref=e295]
+          - generic [ref=e296]:
+            - text: J'accepte que mes données soient utilisées pour traiter ma demande de devis. *
+            - link "En savoir plus" [ref=e297] [cursor=pointer]:
+              - /url: /mentions-legales
+            - text: .
+        - button "Envoyer ma demande" [ref=e298]
+    - generic [ref=e300]:
+      - generic [ref=e301]:
+        - heading "Un projet à Savigny-le-Temple ou en Île-de-France ?" [level=2] [ref=e302]
+        - paragraph [ref=e303]: Contactez T2SR pour discuter de vos travaux.
+      - generic [ref=e304]:
+        - link "Nous contacter" [ref=e305] [cursor=pointer]:
+          - /url: /contact
+        - link "Demander un devis" [ref=e306] [cursor=pointer]:
+          - /url: /demande-de-devis
+  - contentinfo [ref=e307]:
+    - generic [ref=e308]:
+      - generic [ref=e309]:
+        - generic [ref=e311]: T2SR
+        - paragraph [ref=e312]: Peinture, rénovation et travaux du bâtiment.
+        - paragraph [ref=e313]: SIREN 822 433 306, Travaux de peinture et vitrerie (APE 43.34Z)
+      - generic [ref=e314]:
+        - heading "Navigation" [level=3] [ref=e315]
+        - list [ref=e316]:
+          - listitem [ref=e317]:
+            - link "Accueil" [ref=e318] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e319]:
+            - link "Services" [ref=e320] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e321]:
+            - link "Réalisations" [ref=e322] [cursor=pointer]:
+              - /url: /realisations
+          - listitem [ref=e323]:
+            - link "Demander un devis" [ref=e324] [cursor=pointer]:
+              - /url: /demande-de-devis
+          - listitem [ref=e325]:
+            - link "Contact" [ref=e326] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e327]:
+            - link "Mentions légales" [ref=e328] [cursor=pointer]:
+              - /url: /mentions-legales
+      - generic [ref=e329]:
+        - heading "Zone d'intervention" [level=3] [ref=e330]
+        - list [ref=e331]:
+          - listitem [ref=e332]: Savigny-le-Temple
+          - listitem [ref=e333]: Seine-et-Marne
+          - listitem [ref=e334]: Île-de-France
+    - generic [ref=e336]:
+      - paragraph [ref=e337]: © 2026 T2SR. Tous droits réservés.
+      - link "Mentions légales" [ref=e338] [cursor=pointer]:
+        - /url: /mentions-legales

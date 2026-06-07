@@ -1,0 +1,26 @@
+{
+  "name": "@t2sr/website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astroanimate/core": "0.1.2",
+    "@astrojs/sitemap": "^3.2.1",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^5.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-static": "^1.17.0",
+    "simple-icons": "^16.23.0",
+    "tailwind-merge": "^3.6.0",
+    "tailwind-variants": "^3.2.2",
+    "tailwindcss": "^4.3.0"
+  }
+}

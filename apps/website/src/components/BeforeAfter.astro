@@ -1,0 +1,63 @@
+---
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import ScaleIn from "@astroanimate/core/ScaleIn";
+
+interface Props {
+  category: string;
+  label?: string;
+}
+
+const { category, label } = Astro.props;
+---
+
+<ScaleIn enhance initialScale={0.96} duration={420} margin="0px 0px -8% 0px">
+  <Card class="!gap-0 !py-0">
+    <div class="grid grid-cols-2">
+      <div class="ba__img ba__img--before">
+        <Badge variant="secondary" class="absolute top-2.5 left-2.5 uppercase">Avant</Badge>
+        <span class="ba__placeholder">Photo à venir</span>
+      </div>
+      <div class="ba__img ba__img--after">
+        <Badge class="absolute top-2.5 left-2.5 uppercase">Après</Badge>
+        <span class="ba__placeholder">Photo à venir</span>
+      </div>
+    </div>
+    <div class="flex items-center justify-between gap-2 px-5 py-4">
+      <span class="text-foreground font-bold">{category}</span>
+      {label && <span class="text-muted-foreground text-sm">{label}</span>}
+    </div>
+  </Card>
+</ScaleIn>
+
+<style>
+  .ba__img {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+  }
+  .ba__img--before {
+    background: repeating-linear-gradient(
+      45deg,
+      #e2e4e9,
+      #e2e4e9 12px,
+      #d7dae0 12px,
+      #d7dae0 24px
+    );
+  }
+  .ba__img--after {
+    background: repeating-linear-gradient(
+      45deg,
+      #fff1e8,
+      #fff1e8 12px,
+      #ffe2cf 12px,
+      #ffe2cf 24px
+    );
+  }
+  .ba__placeholder {
+    font-size: 0.85rem;
+    color: var(--color-grey);
+    font-weight: 600;
+  }
+</style>

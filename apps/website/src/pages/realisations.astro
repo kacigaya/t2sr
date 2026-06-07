@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BeforeAfter from "../components/BeforeAfter.astro";
+import { Section, SectionContainer } from "../components/ui/section";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { REALISATION_CATEGORIES } from "../data/services";
+import FadeInText from "@astroanimate/core/FadeInText";
+import ScaleIn from "@astroanimate/core/ScaleIn";
+
+const gallery = [
+  { category: "Peinture", label: "Séjour" },
+  { category: "Peinture", label: "Chambre" },
+  { category: "Cuisine", label: "Installation" },
+  { category: "Rénovation", label: "Pièce à vivre" },
+  { category: "Rénovation", label: "Couloir" },
+  { category: "Extérieur", label: "Façade" },
+  { category: "Extérieur", label: "Volets" },
+  { category: "Sols", label: "Revêtement" },
+];
+
+const title = "Réalisations avant / après | T2SR";
+const description =
+  "Galerie des réalisations T2SR : peinture, cuisine, rénovation, travaux extérieurs et sols. Visuels avant/après à Savigny-le-Temple et en Île-de-France.";
+---
+
+<BaseLayout title={title} description={description} path="/realisations">
+  <Section class="bg-muted/50">
+    <SectionContainer>
+      <FadeInText class="max-w-2xl" duration={0.5} blur="4px" yOffset={12}>
+        <Badge variant="outline" class="mb-2 uppercase tracking-wider">Nos réalisations</Badge>
+        <h1>Avant / Après</h1>
+        <p>
+          Cette galerie présente des emplacements réservés. Les photos
+          ci-dessous ne sont pas des chantiers réels : elles seront remplacées
+          par nos réalisations dès qu'elles seront disponibles.
+        </p>
+      </FadeInText>
+
+      <ScaleIn class="flex flex-wrap gap-2" enhance initialScale={0.98} duration={360} margin="0px 0px -8% 0px" role="group" aria-label="Catégories">
+        <Button class="filter is-active" data-filter="all" variant="default" size="sm" type="button">Toutes</Button>
+        {
+          REALISATION_CATEGORIES.map((cat) => (
+            <Button class="filter" data-filter={cat} variant="outline" size="sm" type="button">
+              {cat}
+            </Button>
+          ))
+        }
+      </ScaleIn>
+
+      <div class="grid gap-6 sm:grid-cols-2" id="gallery">
+        {
+          gallery.map((item) => (
+            <div class="gallery__item" data-category={item.category}>
+              <BeforeAfter category={item.category} label={item.label} />
+            </div>
+          ))
+        }
+      </div>
+    </SectionContainer>
+  </Section>
+
+  <Section>
+    <SectionContainer class="items-center text-center">
+      <FadeInText enhance duration={0.5} blur="4px" yOffset={12}>
+        <h2>Envie d'un résultat similaire ?</h2>
+        <p>Envoyez-nous vos photos pour une première estimation.</p>
+      </FadeInText>
+      <ScaleIn enhance initialScale={0.97} duration={380} margin="0px 0px -8% 0px">
+        <Button as="a" href="/demande-de-devis" size="lg">Demander un devis</Button>
+      </ScaleIn>
+    </SectionContainer>
+  </Section>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".filter");
+  const items = document.querySelectorAll<HTMLElement>(".gallery__item");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle("is-active", active);
+        // bascule visuelle entre variant default/outline
+        b.setAttribute("data-state", active ? "on" : "off");
+      });
+      items.forEach((item) => {
+        const show = filter === "all" || item.dataset.category === filter;
+        item.style.display = show ? "" : "none";
+      });
+    });
+  });
+</script>
+
+<style>
+  /* État actif des filtres (le JS bascule .is-active) */
+  .filter.is-active {
+    background: var(--color-accent-cta);
+    border-color: var(--color-accent-cta);
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Section, SectionContainer } from "../components/ui/section";
+import { Badge } from "../components/ui/badge";
+import { Typography } from "../components/ui/typography";
+import { SITE } from "../data/site";
+
+const title = "Mentions légales | T2SR";
+const description =
+  "Mentions légales du site T2SR : éditeur, hébergeur, données personnelles et informations sur l'entreprise (SIREN 822 433 306).";
+---
+
+<BaseLayout title={title} description={description} path="/mentions-legales">
+  <Section>
+    <SectionContainer class="max-w-3xl">
+      <Badge variant="outline" class="uppercase tracking-wider">Informations légales</Badge>
+      <Typography>
+        <h1>Mentions légales</h1>
+
+        <h2>Éditeur du site</h2>
+        <ul>
+          <li><strong>Raison sociale :</strong> {SITE.legalName}</li>
+          <li><strong>SIREN :</strong> {SITE.siren}</li>
+          <li><strong>Activité :</strong> {SITE.apeLabel}</li>
+          <li><strong>Code APE/NAF :</strong> {SITE.ape}</li>
+          <li><strong>Localisation :</strong> {SITE.city}, {SITE.department} ({SITE.region})</li>
+          <li><strong>Adresse :</strong> {SITE.address || "À compléter"}</li>
+          <li><strong>Téléphone :</strong> {SITE.phone || "À compléter"}</li>
+          <li><strong>Email :</strong> {SITE.email || "À compléter"}</li>
+          <li><strong>Directeur de la publication :</strong> À compléter</li>
+        </ul>
+
+        <h2>Hébergeur</h2>
+        <p>
+          Le site est hébergé sur un serveur dédié (VPS). Coordonnées de
+          l'hébergeur : <strong>à compléter</strong> (nom, adresse, téléphone).
+        </p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus de ce site (textes, mise en page, éléments
+          graphiques) est la propriété de {SITE.name}, sauf mention contraire.
+          Toute reproduction sans autorisation est interdite.
+        </p>
+
+        <h2>Données personnelles</h2>
+        <p>
+          Le formulaire de demande de devis collecte les informations que vous
+          renseignez (nom, téléphone, email, ville, description du projet et
+          éventuelles photos) dans le seul but de traiter votre demande et de
+          vous recontacter.
+        </p>
+        <ul>
+          <li><strong>Finalité :</strong> gestion des demandes de devis et de la relation client.</li>
+          <li><strong>Base légale :</strong> votre consentement, recueilli via la case à cocher du formulaire.</li>
+          <li><strong>Destinataire :</strong> {SITE.name} uniquement. Aucune revente à des tiers.</li>
+          <li><strong>Conservation :</strong> les données sont conservées le temps nécessaire au traitement de la demande puis archivées ou supprimées.</li>
+          <li><strong>Vos droits :</strong> accès, rectification et suppression de vos données sur simple demande par email ou téléphone.</li>
+        </ul>
+        <p>
+          Conformément au RGPD, vous pouvez exercer vos droits en contactant
+          {SITE.name} via les coordonnées indiquées sur la page
+          <a href="/contact">Contact</a>.
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          Ce site est statique et n'utilise pas de cookies de suivi
+          publicitaire. Seuls des appels techniques vers l'API de devis sont
+          effectués lors de l'envoi du formulaire.
+        </p>
+      </Typography>
+    </SectionContainer>
+  </Section>
+</BaseLayout>

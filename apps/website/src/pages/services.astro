@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { Section, SectionContainer } from "../components/ui/section";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { SERVICES } from "../data/services";
+import { SITE } from "../data/site";
+import FadeInText from "@astroanimate/core/FadeInText";
+import ScaleIn from "@astroanimate/core/ScaleIn";
+
+const title = "Services de peinture et rénovation | T2SR";
+const description =
+  "Découvrez les services T2SR : peinture intérieure et extérieure, vitrerie, rénovation, installation de cuisine, revêtements muraux et de sols, finitions et travaux extérieurs à Savigny-le-Temple et en Île-de-France.";
+---
+
+<BaseLayout title={title} description={description} path="/services">
+  <Section class="bg-muted/50">
+    <SectionContainer>
+      <FadeInText class="max-w-2xl" duration={0.5} blur="4px" yOffset={12}>
+        <Badge variant="outline" class="mb-2 uppercase tracking-wider">Nos services</Badge>
+        <h1>Peinture, rénovation et travaux du bâtiment</h1>
+        <p>Nos prestations pour vos travaux intérieurs et extérieurs à {SITE.city} et en {SITE.region}.</p>
+      </FadeInText>
+      <ScaleIn enhance initialScale={0.97} duration={380} margin="0px 0px -8% 0px">
+        <Button as="a" href="/demande-de-devis" size="lg">Demander un devis</Button>
+      </ScaleIn>
+    </SectionContainer>
+  </Section>
+
+  <Section>
+    <SectionContainer>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {SERVICES.map((service) => <ServiceCard service={service} detailed />)}
+      </div>
+    </SectionContainer>
+  </Section>
+
+  <Section class="bg-anthracite text-white">
+    <SectionContainer class="items-center text-center">
+      <FadeInText duration={0.5} blur="4px" yOffset={12}>
+        <h2 class="text-white">Un service vous intéresse ?</h2>
+        <p class="!text-white/70">Décrivez votre besoin, nous vous répondons avec une estimation.</p>
+      </FadeInText>
+      <ScaleIn enhance initialScale={0.97} duration={380} margin="0px 0px -8% 0px">
+        <Button as="a" href="/demande-de-devis" size="lg">Demander un devis</Button>
+      </ScaleIn>
+    </SectionContainer>
+  </Section>
+</BaseLayout>
+
+<style>
+  .bg-anthracite {
+    background: var(--color-anthracite);
+  }
+</style>

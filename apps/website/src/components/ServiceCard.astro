@@ -1,0 +1,64 @@
+---
+import type { Service } from "../data/services";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./ui/card";
+import { Button } from "./ui/button";
+import ScaleIn from "@astroanimate/core/ScaleIn";
+
+interface Props {
+  service: Service;
+  detailed?: boolean;
+}
+
+const { service, detailed = false } = Astro.props;
+const quoteHref = `/demande-de-devis?service=${service.slug}`;
+---
+
+<ScaleIn class="h-full" enhance initialScale={0.96} duration={420} margin="0px 0px -8% 0px">
+  <Card class="h-full">
+    <CardHeader>
+      <span class="accent-bar" aria-hidden="true"></span>
+      <CardTitle class="!text-xl !font-bold">{service.title}</CardTitle>
+    </CardHeader>
+
+    <CardContent class="flex flex-1 flex-col gap-3">
+      <p class="text-muted-foreground text-[0.95rem] leading-relaxed">
+        {service.shortDescription}
+      </p>
+
+      {
+        detailed && (
+          <>
+            <h4 class="text-foreground mt-1 font-semibold">
+              Exemples d'interventions
+            </h4>
+            <ul class="text-muted-foreground list-disc space-y-1 pl-5 text-[0.92rem]">
+              {service.examples.map((ex) => (
+                <li>{ex}</li>
+              ))}
+            </ul>
+            <p class="bg-muted text-foreground/80 rounded-lg border-l-[3px] border-l-[var(--ring)] px-3 py-2 text-[0.9rem]">
+              <strong>Bon à savoir :</strong> {service.clientInfo}
+            </p>
+          </>
+        )
+      }
+    </CardContent>
+
+    <CardFooter class="mt-auto">
+      <Button as="a" href={quoteHref} variant="outline" size="lg">
+        Demander ce service
+      </Button>
+    </CardFooter>
+  </Card>
+</ScaleIn>
+
+<style>
+  .accent-bar {
+    display: block;
+    width: 2.5rem;
+    height: 4px;
+    border-radius: 999px;
+    background: #f56a21;
+    margin-bottom: 0.5rem;
+  }
+</style>

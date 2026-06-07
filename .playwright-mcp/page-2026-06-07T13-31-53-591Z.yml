@@ -1,0 +1,216 @@
+- generic [active] [ref=e1]:
+  - link "Aller au contenu" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "T2SR, accueil" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: T2SR
+      - navigation "Navigation principale" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Accueil" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "Services" [ref=e12] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e13]:
+            - link "Réalisations" [ref=e14] [cursor=pointer]:
+              - /url: /realisations
+          - listitem [ref=e15]:
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e17]:
+            - link "Demander un devis" [ref=e18] [cursor=pointer]:
+              - /url: /demande-de-devis
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Nos services
+        - heading "Peinture, rénovation et travaux du bâtiment" [level=1] [ref=e24]
+        - paragraph [ref=e25]: Nos prestations pour vos travaux intérieurs et extérieurs à Savigny-le-Temple et en Île-de-France.
+      - link "Demander un devis" [ref=e26] [cursor=pointer]:
+        - /url: /demande-de-devis
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e33]: Peinture intérieure
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: Mise en peinture de murs, plafonds et boiseries pour rafraîchir ou transformer vos pièces.
+          - heading "Exemples d'interventions" [level=4] [ref=e36]
+          - list [ref=e37]:
+            - listitem [ref=e38]: Peinture de séjour, chambres et couloirs
+            - listitem [ref=e39]: Plafonds et sous-couches
+            - listitem [ref=e40]: Peinture de portes, plinthes et boiseries
+          - paragraph [ref=e41]:
+            - strong [ref=e42]: "Bon à savoir :"
+            - text: Préparez le type de finition souhaité (mat, satin, velours) et les couleurs envisagées pour une estimation plus précise.
+        - link "Demander ce service" [ref=e44] [cursor=pointer]:
+          - /url: /demande-de-devis?service=peinture-interieure
+      - generic [ref=e45]:
+        - generic [ref=e48]: Peinture extérieure
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: Protection et embellissement des surfaces extérieures exposées aux intempéries.
+          - heading "Exemples d'interventions" [level=4] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]: Peinture de façades et murets
+            - listitem [ref=e54]: Volets, portails et ferronneries
+            - listitem [ref=e55]: Boiseries extérieures
+          - paragraph [ref=e56]:
+            - strong [ref=e57]: "Bon à savoir :"
+            - text: Les travaux extérieurs dépendent de la météo et de l'état du support. Des photos aident à évaluer la préparation nécessaire.
+        - link "Demander ce service" [ref=e59] [cursor=pointer]:
+          - /url: /demande-de-devis?service=peinture-exterieure
+      - generic [ref=e60]:
+        - generic [ref=e63]: Vitrerie
+        - generic [ref=e64]:
+          - paragraph [ref=e65]: Travaux de vitrerie pour vos fenêtres, portes et surfaces vitrées.
+          - heading "Exemples d'interventions" [level=4] [ref=e66]
+          - list [ref=e67]:
+            - listitem [ref=e68]: Pose et remplacement de vitrages
+            - listitem [ref=e69]: Réparation de surfaces vitrées
+            - listitem [ref=e70]: Finitions autour des menuiseries
+          - paragraph [ref=e71]:
+            - strong [ref=e72]: "Bon à savoir :"
+            - text: Indiquez les dimensions approximatives et le type de vitrage si vous les connaissez.
+        - link "Demander ce service" [ref=e74] [cursor=pointer]:
+          - /url: /demande-de-devis?service=vitrerie
+      - generic [ref=e75]:
+        - generic [ref=e78]: Rénovation intérieure
+        - generic [ref=e79]:
+          - paragraph [ref=e80]: Rénovation complète ou partielle de vos espaces intérieurs.
+          - heading "Exemples d'interventions" [level=4] [ref=e81]
+          - list [ref=e82]:
+            - listitem [ref=e83]: Rafraîchissement de pièces
+            - listitem [ref=e84]: Préparation et reprise des supports
+            - listitem [ref=e85]: Coordination de petits travaux liés
+          - paragraph [ref=e86]:
+            - strong [ref=e87]: "Bon à savoir :"
+            - text: Décrivez l'état actuel et le résultat attendu. Plus le projet est détaillé, plus le devis est précis.
+        - link "Demander ce service" [ref=e89] [cursor=pointer]:
+          - /url: /demande-de-devis?service=renovation-interieure
+      - generic [ref=e90]:
+        - generic [ref=e93]: Installation de cuisine
+        - generic [ref=e94]:
+          - paragraph [ref=e95]: Montage et installation d'éléments de cuisine et finitions associées.
+          - heading "Exemples d'interventions" [level=4] [ref=e96]
+          - list [ref=e97]:
+            - listitem [ref=e98]: Montage de meubles de cuisine
+            - listitem [ref=e99]: Pose et ajustements
+            - listitem [ref=e100]: Finitions et raccords
+          - paragraph [ref=e101]:
+            - strong [ref=e102]: "Bon à savoir :"
+            - text: Précisez si la cuisine est déjà achetée et son fournisseur, ainsi que les contraintes de la pièce.
+        - link "Demander ce service" [ref=e104] [cursor=pointer]:
+          - /url: /demande-de-devis?service=installation-cuisine
+      - generic [ref=e105]:
+        - generic [ref=e108]: Revêtements muraux
+        - generic [ref=e109]:
+          - paragraph [ref=e110]: Pose de revêtements muraux pour décorer et protéger vos murs.
+          - heading "Exemples d'interventions" [level=4] [ref=e111]
+          - list [ref=e112]:
+            - listitem [ref=e113]: Pose de papier peint et toile
+            - listitem [ref=e114]: Revêtements décoratifs
+            - listitem [ref=e115]: Préparation des supports
+          - paragraph [ref=e116]:
+            - strong [ref=e117]: "Bon à savoir :"
+            - text: Indiquez le type de revêtement souhaité et la surface concernée.
+        - link "Demander ce service" [ref=e119] [cursor=pointer]:
+          - /url: /demande-de-devis?service=revetements-muraux
+      - generic [ref=e120]:
+        - generic [ref=e123]: Revêtements de sols
+        - generic [ref=e124]:
+          - paragraph [ref=e125]: Pose de revêtements de sol adaptés à chaque pièce.
+          - heading "Exemples d'interventions" [level=4] [ref=e126]
+          - list [ref=e127]:
+            - listitem [ref=e128]: Pose de sols souples
+            - listitem [ref=e129]: Préparation et ragréage léger
+            - listitem [ref=e130]: Finitions et plinthes
+          - paragraph [ref=e131]:
+            - strong [ref=e132]: "Bon à savoir :"
+            - text: Mesurez la surface au sol et précisez le type de revêtement envisagé.
+        - link "Demander ce service" [ref=e134] [cursor=pointer]:
+          - /url: /demande-de-devis?service=revetements-sols
+      - generic [ref=e135]:
+        - generic [ref=e138]: Travaux de finition
+        - generic [ref=e139]:
+          - paragraph [ref=e140]: Reprises, raccords et retouches pour finir le chantier proprement.
+          - heading "Exemples d'interventions" [level=4] [ref=e141]
+          - list [ref=e142]:
+            - listitem [ref=e143]: Reprises et raccords
+            - listitem [ref=e144]: Joints et finitions
+            - listitem [ref=e145]: Retouches après travaux
+          - paragraph [ref=e146]:
+            - strong [ref=e147]: "Bon à savoir :"
+            - text: Listez les points à finaliser pour un chiffrage adapté.
+        - link "Demander ce service" [ref=e149] [cursor=pointer]:
+          - /url: /demande-de-devis?service=travaux-finition
+      - generic [ref=e150]:
+        - generic [ref=e153]: Petits travaux de bâtiment
+        - generic [ref=e154]:
+          - paragraph [ref=e155]: Interventions ponctuelles et petits travaux pour entretenir votre logement.
+          - heading "Exemples d'interventions" [level=4] [ref=e156]
+          - list [ref=e157]:
+            - listitem [ref=e158]: Petites réparations
+            - listitem [ref=e159]: Travaux ponctuels
+            - listitem [ref=e160]: Entretien courant
+          - paragraph [ref=e161]:
+            - strong [ref=e162]: "Bon à savoir :"
+            - text: Décrivez précisément l'intervention souhaitée et son urgence éventuelle.
+        - link "Demander ce service" [ref=e164] [cursor=pointer]:
+          - /url: /demande-de-devis?service=petits-travaux
+      - generic [ref=e165]:
+        - generic [ref=e168]: Travaux extérieurs
+        - generic [ref=e169]:
+          - paragraph [ref=e170]: Travaux de façade et entretien des extérieurs.
+          - heading "Exemples d'interventions" [level=4] [ref=e171]
+          - list [ref=e172]:
+            - listitem [ref=e173]: Travaux de façade
+            - listitem [ref=e174]: Entretien extérieur
+            - listitem [ref=e175]: Finitions extérieures
+          - paragraph [ref=e176]:
+            - strong [ref=e177]: "Bon à savoir :"
+            - text: Des photos de l'existant facilitent une première estimation.
+        - link "Demander ce service" [ref=e179] [cursor=pointer]:
+          - /url: /demande-de-devis?service=travaux-exterieurs
+    - generic [ref=e181]:
+      - heading "Un service vous intéresse ?" [level=2] [ref=e182]
+      - paragraph [ref=e183]: Décrivez votre besoin, nous vous répondons avec une estimation.
+      - link "Demander un devis" [ref=e184] [cursor=pointer]:
+        - /url: /demande-de-devis
+  - contentinfo [ref=e185]:
+    - generic [ref=e186]:
+      - generic [ref=e187]:
+        - generic [ref=e189]: T2SR
+        - paragraph [ref=e190]: Peinture, rénovation et travaux du bâtiment.
+        - paragraph [ref=e191]: SIREN 822 433 306, Travaux de peinture et vitrerie (APE 43.34Z)
+      - generic [ref=e192]:
+        - heading "Navigation" [level=3] [ref=e193]
+        - list [ref=e194]:
+          - listitem [ref=e195]:
+            - link "Accueil" [ref=e196] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e197]:
+            - link "Services" [ref=e198] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e199]:
+            - link "Réalisations" [ref=e200] [cursor=pointer]:
+              - /url: /realisations
+          - listitem [ref=e201]:
+            - link "Demander un devis" [ref=e202] [cursor=pointer]:
+              - /url: /demande-de-devis
+          - listitem [ref=e203]:
+            - link "Contact" [ref=e204] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e205]:
+            - link "Mentions légales" [ref=e206] [cursor=pointer]:
+              - /url: /mentions-legales
+      - generic [ref=e207]:
+        - heading "Zone d'intervention" [level=3] [ref=e208]
+        - list [ref=e209]:
+          - listitem [ref=e210]: Savigny-le-Temple
+          - listitem [ref=e211]: Seine-et-Marne
+          - listitem [ref=e212]: Île-de-France
+    - generic [ref=e213]:
+      - paragraph [ref=e214]: © 2026 T2SR. Tous droits réservés.
+      - link "Mentions légales" [ref=e215] [cursor=pointer]:
+        - /url: /mentions-legales

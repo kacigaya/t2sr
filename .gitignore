@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# build output
+dist/
+.astro/
+.output/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# database & uploads (never commit)
+apps/api/data/*.sqlite
+apps/api/data/*.sqlite-*
+apps/api/uploads/
+
+# logs
+*.log
+npm-debug.log*
+bun-debug.log*
+
+# os
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/

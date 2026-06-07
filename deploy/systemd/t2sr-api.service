@@ -1,0 +1,41 @@
+# =====================================================================
+# Service systemd — API Hono T2SR (Bun)
+# Copier vers /etc/systemd/system/t2sr-api.service puis:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now t2sr-api
+# =====================================================================
+
+[Unit]
+Description=T2SR API (Hono + Bun)
+After=network.target
+
+[Service]
+Type=simple
+User=t2sr
+Group=t2sr
+WorkingDirectory=/var/www/t2sr/api
+
+# Chemin absolu de Bun (adapter selon l'installation: which bun).
+ExecStart=/home/t2sr/.bun/bin/bun run src/index.ts
+
+# Variables d'environnement via fichier dédié (chmod 600).
+EnvironmentFile=/var/www/t2sr/api/.env
+
+Restart=on-failure
+RestartSec=5
+
+# --- Durcissement ---
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+# Autorise l'écriture sur la base SQLite et le dossier d'uploads.
+ReadWritePaths=/var/www/t2sr/api/data /var/www/t2sr/api/uploads
+
+# --- Logs ---
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=t2sr-api
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+---
+import { Item, ItemMedia, ItemContent, ItemTitle } from "./ui/item";
+import ScaleIn from "@astroanimate/core/ScaleIn";
+
+interface Props {
+  step: number;
+  title: string;
+}
+
+const { step, title } = Astro.props;
+---
+
+<ScaleIn as="li" enhance initialScale={0.96} duration={380} delay={(step - 1) * 45} margin="0px 0px -8% 0px">
+  <Item variant="outline" class="bg-card shadow-xs">
+    <ItemMedia>
+      <span
+        class="bg-primary text-primary-foreground grid size-9 place-items-center rounded-full text-base font-extrabold"
+        aria-hidden="true">{step}</span>
+    </ItemMedia>
+    <ItemContent>
+      <ItemTitle class="!text-base !font-semibold whitespace-normal">{title}</ItemTitle>
+    </ItemContent>
+  </Item>
+</ScaleIn>
