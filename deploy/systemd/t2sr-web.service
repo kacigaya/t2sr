@@ -13,12 +13,12 @@ After=network.target
 Type=simple
 User=t2sr
 Group=t2sr
-WorkingDirectory=/var/www/t2sr/apps/website
+WorkingDirectory=/var/www/t2sr
 
 ExecStart=/home/t2sr/.bun/bin/bun run start
 Environment=HOST=127.0.0.1
 Environment=PORT=4321
-EnvironmentFile=-/var/www/t2sr/apps/website/.env
+EnvironmentFile=-/var/www/t2sr/.env
 
 Restart=on-failure
 RestartSec=5

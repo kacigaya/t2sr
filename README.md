@@ -10,11 +10,12 @@ Site vitrine premium pour **T2SR** : placo, peinture, décoration, installation 
 
 ```txt
 t2sr/
+├── src/                # TanStack Start website
+├── public/             # Website public assets
 ├── apps/
-│   ├── website/        # TanStack Start SSR
 │   └── api/            # Hono + Bun + SQLite
 ├── deploy/             # Nginx, systemd, backup
-└── package.json        # workspaces Bun
+└── package.json        # Website app + API workspace
 ```
 
 ## Lancer le projet
@@ -26,26 +27,26 @@ bun install
 bun run dev:api
 
 # Terminal 2
-bun run dev:website
+bun run dev
 ```
 
 En local :
 
 ```bash
 cp apps/api/.env.example apps/api/.env
-cp apps/website/.env.example apps/website/.env
+cp .env.example .env
 ```
 
 Variables importantes :
 
 - `apps/api/.env` : `WEBSITE_ORIGIN=http://localhost:4321`
-- `apps/website/.env` : `VITE_PUBLIC_API_URL=http://localhost:8787`
+- `.env` : `VITE_PUBLIC_API_URL=http://localhost:8787`
 
 Commandes utiles :
 
 ```bash
 bun run build          # build du site TanStack Start
-bun run start:website  # serveur SSR du site
+bun run start          # serveur SSR du site
 bun run start:api      # API Hono
 bun test --cwd apps/api
 ```
@@ -55,7 +56,7 @@ bun test --cwd apps/api
 Les coordonnées publiques sont centralisées dans :
 
 ```txt
-apps/website/src/data/site.ts
+src/data/site.ts
 ```
 
 Compléter :
@@ -73,7 +74,7 @@ Le site utilise actuellement des placeholders visuels CSS pour éviter les fauss
 
 Pour ajouter de vraies images :
 
-1. placer les fichiers dans `apps/website/public/`
+1. placer les fichiers dans `public/`
 2. remplacer les blocs `image-placeholder` par des balises `<img>`
 3. renseigner un `alt` descriptif réel pour chaque image
 4. remplacer les textes placeholders sur les réalisations et avis
@@ -83,9 +84,9 @@ Pour ajouter de vraies images :
 Les contenus principaux sont dans :
 
 ```txt
-apps/website/src/data/services.ts
-apps/website/src/data/seo.ts
-apps/website/src/data/site.ts
+src/data/services.ts
+src/data/seo.ts
+src/data/site.ts
 ```
 
 Chaque page doit garder :
