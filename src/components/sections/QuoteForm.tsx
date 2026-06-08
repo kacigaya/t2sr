@@ -115,35 +115,35 @@ function QuoteForm() {
     <form onSubmit={onSubmit} className="rounded-xl border border-ink/10 bg-soft p-5 shadow-premium sm:p-8" noValidate>
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Nom et prénom" error={errors.fullName}>
-          <Input name="fullName" autoComplete="name" />
+        <Field label="Nom et prénom" error={errors.fullName} required>
+          <Input name="fullName" autoComplete="name" required aria-invalid={Boolean(errors.fullName)} />
         </Field>
-        <Field label="Téléphone" error={errors.phone}>
-          <Input name="phone" type="tel" autoComplete="tel" />
+        <Field label="Téléphone" error={errors.phone} required>
+          <Input name="phone" type="tel" autoComplete="tel" required aria-invalid={Boolean(errors.phone)} />
         </Field>
-        <Field label="Email" error={errors.email}>
-          <Input name="email" type="email" autoComplete="email" />
+        <Field label="Email" error={errors.email} required>
+          <Input name="email" type="email" autoComplete="email" required aria-invalid={Boolean(errors.email)} />
         </Field>
-        <Field label="Type de client" error={errors.customerType}>
-          <NativeSelect name="customerType">
+        <Field label="Type de client" error={errors.customerType} required>
+          <NativeSelect name="customerType" required aria-invalid={Boolean(errors.customerType)}>
             <option value="">Sélectionnez</option>
             <option value="particulier">Particulier</option>
             <option value="professionnel">Professionnel</option>
           </NativeSelect>
         </Field>
-        <Field label="Service souhaité" error={errors.workType}>
-          <NativeSelect name="workType">
+        <Field label="Service souhaité" error={errors.workType} required>
+          <NativeSelect name="workType" required aria-invalid={Boolean(errors.workType)}>
             <option value="">Sélectionnez</option>
             {serviceOptions.map((service) => (
               <option key={service.slug} value={service.slug}>{service.title}</option>
             ))}
           </NativeSelect>
         </Field>
-        <Field label="Ville du chantier" error={errors.city}>
-          <Input name="city" autoComplete="address-level2" />
+        <Field label="Ville du chantier" error={errors.city} required>
+          <Input name="city" autoComplete="address-level2" required aria-invalid={Boolean(errors.city)} />
         </Field>
-        <Field label="Délai souhaité" error={errors.deadline}>
-          <NativeSelect name="deadline">
+        <Field label="Délai souhaité" error={errors.deadline} required>
+          <NativeSelect name="deadline" required aria-invalid={Boolean(errors.deadline)}>
             <option value="">Sélectionnez</option>
             {deadlines.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
           </NativeSelect>
@@ -155,8 +155,8 @@ function QuoteForm() {
         </Field>
       </div>
       <div className="mt-5 grid gap-5">
-        <Field label="Message" error={errors.description}>
-          <Textarea name="description" maxLength={2000} />
+        <Field label="Message" error={errors.description} required>
+          <Textarea name="description" maxLength={2000} required aria-invalid={Boolean(errors.description)} />
         </Field>
         <PhotoUpload
           ref={fileInputRef}
