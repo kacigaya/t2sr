@@ -1,5 +1,4 @@
 [build]
-  base = "apps/website"
   command = "vite build"
   publish = "dist/client"
 
