@@ -1,0 +1,7 @@
+[build]
+  command = "bun run build"
+  publish = "apps/website/dist/client"
+
+[dev]
+  command = "bun run dev:website"
+  port = 4321

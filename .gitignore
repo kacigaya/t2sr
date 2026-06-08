@@ -7,6 +7,8 @@ node_modules/
 dist/
 .astro/
 .output/
+.netlify/
+**/.netlify/
 
 # env
 .env
