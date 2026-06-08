@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AlertCircle, Image, Mail, MessageCircle, Phone, Upload, X } from "lucide-react";
 import { SERVICES } from "@/data/services";
 import { SITE } from "@/data/site";
 import { publicApiUrl } from "@/lib/utils";
@@ -77,6 +77,8 @@ function QuoteForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [selectedFiles, setSelectedFiles] = useState<PreviewFile[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const serviceOptions = useMemo(() => SERVICES, []);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -100,6 +102,7 @@ function QuoteForm() {
         throw new Error(data.error || "Erreur lors de l’envoi.");
       }
       form.reset();
+      setSelectedFiles([]);
       setStatus("success");
       setMessage("Votre demande a bien été envoyée. T2SR reviendra vers vous dès que possible.");
     } catch (error) {
@@ -155,9 +158,12 @@ function QuoteForm() {
         <Field label="Message" error={errors.description}>
           <Textarea name="description" maxLength={2000} />
         </Field>
-        <Field label="Upload photo optionnel">
-          <Input name="files" type="file" multiple accept="image/jpeg,image/png,image/webp" />
-        </Field>
+        <PhotoUpload
+          ref={fileInputRef}
+          error={errors.files}
+          files={selectedFiles}
+          onFilesChange={setSelectedFiles}
+        />
         <label className="flex gap-3 rounded-xl bg-white p-4 text-sm font-bold text-copy">
           <input name="consent" value="true" type="checkbox" className="mt-1 size-4 accent-terracotta" />
           <span>
@@ -175,6 +181,179 @@ function QuoteForm() {
         </Button>
       </div>
     </form>
+  );
+}
+
+interface PreviewFile {
+  id: string;
+  file: File;
+  preview: string;
+}
+
+function PhotoUpload({
+  error,
+  files,
+  onFilesChange,
+  ref,
+}: {
+  error?: string;
+  files: PreviewFile[];
+  onFilesChange: React.Dispatch<React.SetStateAction<PreviewFile[]>>;
+  ref: React.RefObject<HTMLInputElement | null>;
+}) {
+  const [isDragging, setIsDragging] = useState(false);
+  const filesRef = useRef(files);
+  const maxFiles = 5;
+  const maxSizeMB = 5;
+  const accept = "image/jpeg,image/png,image/webp";
+
+  useEffect(() => {
+    filesRef.current = files;
+  }, [files]);
+
+  useEffect(() => {
+    return () => {
+      for (const item of filesRef.current) URL.revokeObjectURL(item.preview);
+    };
+  }, []);
+
+  function syncInput(nextFiles: PreviewFile[]) {
+    const input = ref.current;
+    if (!input) return;
+    const transfer = new DataTransfer();
+    for (const item of nextFiles) transfer.items.add(item.file);
+    input.files = transfer.files;
+  }
+
+  function addFiles(fileList: FileList | File[]) {
+    const incoming = Array.from(fileList).filter((file) => file.size > 0);
+    onFilesChange((current) => {
+      const availableSlots = Math.max(0, maxFiles - current.length);
+      const nextItems = incoming.slice(0, availableSlots).map((file) => ({
+        id: `${file.name}-${file.size}-${file.lastModified}-${Math.random().toString(36).slice(2)}`,
+        file,
+        preview: URL.createObjectURL(file),
+      }));
+      const next = [...current, ...nextItems];
+      syncInput(next);
+      return next;
+    });
+  }
+
+  function removeFile(id: string) {
+    onFilesChange((current) => {
+      const removed = current.find((item) => item.id === id);
+      if (removed) URL.revokeObjectURL(removed.preview);
+      const next = current.filter((item) => item.id !== id);
+      syncInput(next);
+      return next;
+    });
+  }
+
+  function openFileDialog() {
+    ref.current?.click();
+  }
+
+  function onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.currentTarget.files) addFiles(event.currentTarget.files);
+  }
+
+  function onDragEnter(event: React.DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsDragging(true);
+  }
+
+  function onDragLeave(event: React.DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.currentTarget.contains(event.relatedTarget as Node)) return;
+    setIsDragging(false);
+  }
+
+  function onDragOver(event: React.DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  function onDrop(event: React.DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsDragging(false);
+    addFiles(event.dataTransfer.files);
+  }
+
+  return (
+    <div className="grid gap-2 text-sm font-bold text-ink">
+      <span>Photos optionnelles</span>
+      <div
+        className={
+          "relative flex min-h-52 flex-col items-center justify-center overflow-hidden rounded-xl border border-dashed border-ink/20 bg-white p-4 transition " +
+          (isDragging ? "border-terracotta bg-terracotta/5 ring-4 ring-terracotta/15" : "hover:border-terracotta/70")
+        }
+        data-dragging={isDragging || undefined}
+        onDragEnter={onDragEnter}
+        onDragLeave={onDragLeave}
+        onDragOver={onDragOver}
+        onDrop={onDrop}
+      >
+        <input
+          ref={ref}
+          className="sr-only"
+          name="files"
+          type="file"
+          accept={accept}
+          multiple
+          aria-label="Ajouter des photos du chantier"
+          onChange={onInputChange}
+        />
+        {files.length > 0 ? (
+          <div className="grid w-full gap-3 sm:grid-cols-2">
+            {files.map((item) => (
+              <div key={item.id} className="group relative overflow-hidden rounded-xl border border-ink/10 bg-soft">
+                <img src={item.preview} alt={`Aperçu de ${item.file.name}`} className="aspect-[4/3] size-full object-cover" />
+                <button
+                  className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-ink/75 text-white transition hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta"
+                  type="button"
+                  aria-label={`Retirer ${item.file.name}`}
+                  onClick={() => removeFile(item.id)}
+                >
+                  <X className="size-4" aria-hidden="true" />
+                </button>
+              </div>
+            ))}
+            {files.length < maxFiles && (
+              <button
+                className="flex min-h-36 flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-ink/20 bg-white p-4 text-center text-copy transition hover:border-terracotta hover:text-terracotta"
+                type="button"
+                onClick={openFileDialog}
+              >
+                <Upload className="size-5" aria-hidden="true" />
+                Ajouter une photo
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center px-4 py-3 text-center">
+            <div className="mb-3 flex size-12 items-center justify-center rounded-full border border-ink/10 bg-soft" aria-hidden="true">
+              <Image className="size-5 text-terracotta" />
+            </div>
+            <p className="mb-1.5 text-sm font-black text-ink">Déposez vos photos ici</p>
+            <p className="text-xs font-semibold text-copy">JPG, PNG ou WebP, jusqu’à {maxFiles} fichiers de {maxSizeMB} Mo</p>
+            <Button className="mt-4" type="button" variant="outline" onClick={openFileDialog}>
+              <Upload className="size-4" aria-hidden="true" />
+              Sélectionner des photos
+            </Button>
+          </div>
+        )}
+      </div>
+      {error && (
+        <span className="flex items-center gap-1 text-xs font-bold text-red-600" role="alert">
+          <AlertCircle className="size-3" aria-hidden="true" />
+          {error}
+        </span>
+      )}
+    </div>
   );
 }
 
