@@ -13,14 +13,16 @@ export function WhyChoose() {
             Une approche claire pour des travaux propres et maîtrisés
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ADVANTAGES.map((advantage, index) => (
-            <Reveal key={advantage} delay={index * 0.04} className="rounded-xl bg-white p-6 shadow-sm">
-              <CheckCircle2 className="size-7 text-terracotta" aria-hidden="true" />
-              <h3 className="mt-5 font-display text-xl font-black text-ink">{advantage}</h3>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal>
+          <ul className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            {ADVANTAGES.map((advantage) => (
+              <li key={advantage} className="flex items-center gap-3">
+                <CheckCircle2 className="size-5 shrink-0 text-terracotta" aria-hidden="true" />
+                <span className="font-display text-lg font-bold text-ink">{advantage}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </Container>
     </Section>
   );
