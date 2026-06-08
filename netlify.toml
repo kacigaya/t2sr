@@ -1,7 +1,11 @@
 [build]
+  base = "apps/website"
   command = "bun run build"
-  publish = "apps/website/dist/client"
+  publish = "dist/client"
+
+[build.environment]
+  BUN_VERSION = "1.3.11"
 
 [dev]
-  command = "bun run dev:website"
+  command = "bun run dev"
   port = 4321
