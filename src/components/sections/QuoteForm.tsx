@@ -112,7 +112,7 @@ function QuoteForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-xl border border-ink/10 bg-soft p-5 shadow-premium sm:p-8" noValidate>
+    <form onSubmit={onSubmit} className="grid gap-5" noValidate>
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Nom et prénom" error={errors.fullName} required>
@@ -177,7 +177,7 @@ function QuoteForm() {
           </div>
         )}
         <Button type="submit" disabled={status === "sending"} className="w-full">
-          {status === "sending" ? "Envoi en cours..." : "Recevoir mon devis gratuit"}
+          {status === "sending" ? "Envoi en cours..." : <strong>Recevoir mon devis gratuit</strong>}
         </Button>
       </div>
     </form>
