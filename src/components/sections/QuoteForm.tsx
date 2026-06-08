@@ -164,13 +164,34 @@ function QuoteForm() {
           files={selectedFiles}
           onFilesChange={setSelectedFiles}
         />
-        <label className="flex gap-3 rounded-xl bg-white p-4 text-sm font-bold text-copy">
-          <input name="consent" value="true" type="checkbox" className="mt-1 size-4 accent-terracotta" />
-          <span>
-            J’accepte d’être recontacté concernant ma demande.
-            {errors.consent && <span className="mt-1 block text-xs text-red-600">{errors.consent}</span>}
-          </span>
-        </label>
+        <div className="grid gap-3">
+          <label className="group flex cursor-pointer items-start gap-3 rounded-xl p-1 text-sm font-bold text-copy">
+            <span className="relative mt-0.5 flex size-[18px] shrink-0 items-center justify-center">
+              <input
+                name="consent"
+                value="true"
+                type="checkbox"
+                className="peer sr-only"
+              />
+              <span className="absolute inset-0 rounded-md border border-ink/25 bg-white transition peer-checked:border-terracotta peer-checked:bg-terracotta peer-focus-visible:ring-2 peer-focus-visible:ring-terracotta/40 peer-focus-visible:ring-offset-1" />
+              <svg
+                className="relative z-10 size-3 text-white opacity-0 transition peer-checked:opacity-100"
+                viewBox="0 0 12 12"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <span>
+              J'accepte d'être recontacté concernant ma demande et j'ai lu la{" "}
+              <a href="/politique-confidentialite" className="font-black text-terracotta underline underline-offset-2 transition hover:text-terracotta/80" target="_blank" rel="noopener noreferrer">
+                politique de confidentialité
+              </a>.
+              {errors.consent && <span className="mt-1 block text-xs text-red-600">{errors.consent}</span>}
+            </span>
+          </label>
+        </div>
         {message && (
           <div className={status === "success" ? "rounded-xl bg-green-50 p-4 text-sm font-bold text-green-700" : "rounded-xl bg-red-50 p-4 text-sm font-bold text-red-700"} role="status">
             {message}
