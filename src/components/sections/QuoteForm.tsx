@@ -64,7 +64,7 @@ function ContactButton({ icon, label, href }: { icon: React.ReactNode; label: st
   return (
     <a
       href={href ?? "#devis"}
-      className="flex items-center gap-3 rounded-xl border border-ink/10 bg-soft px-5 py-4 font-extrabold text-ink transition hover:border-terracotta hover:text-terracotta"
+      className="flex items-center gap-3 font-extrabold text-ink transition hover:text-terracotta"
     >
       <span className="text-terracotta">{icon}</span>
       {label}
