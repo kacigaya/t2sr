@@ -28,6 +28,7 @@ function InitSchema(database: Database): void {
       full_name     TEXT NOT NULL,
       phone         TEXT NOT NULL,
       email         TEXT NOT NULL,
+      customer_type TEXT NOT NULL DEFAULT '',
       city          TEXT NOT NULL,
       address       TEXT NOT NULL DEFAULT '',
       work_type     TEXT NOT NULL,
@@ -56,6 +57,15 @@ function InitSchema(database: Database): void {
     CREATE INDEX IF NOT EXISTS idx_quotes_created_at ON quotes(created_at);
     CREATE INDEX IF NOT EXISTS idx_quote_files_quote_id ON quote_files(quote_id);
   `);
+
+  const columns = database
+    .query<{ name: string }, []>("PRAGMA table_info(quotes)")
+    .all()
+    .map((column) => column.name);
+
+  if (!columns.includes("customer_type")) {
+    database.exec("ALTER TABLE quotes ADD COLUMN customer_type TEXT NOT NULL DEFAULT '';");
+  }
 }
 
 // Insere une demande de devis + ses fichiers dans une transaction.
@@ -69,11 +79,11 @@ export function InsertQuote(
 
   const insertQuote = database.prepare(`
     INSERT INTO quotes (
-      id, full_name, phone, email, city, address, work_type, rooms,
+      id, full_name, phone, email, customer_type, city, address, work_type, rooms,
       surface, support_state, budget, deadline, description, consent,
       created_at, status
     ) VALUES (
-      $id, $full_name, $phone, $email, $city, $address, $work_type, $rooms,
+      $id, $full_name, $phone, $email, $customer_type, $city, $address, $work_type, $rooms,
       $surface, $support_state, $budget, $deadline, $description, $consent,
       $created_at, $status
     )
@@ -93,6 +103,7 @@ export function InsertQuote(
       $full_name: input.fullName,
       $phone: input.phone,
       $email: input.email,
+      $customer_type: input.customerType,
       $city: input.city,
       $address: input.address,
       $work_type: input.workType,

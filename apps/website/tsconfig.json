@@ -1,13 +1,27 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
   "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "verbatimModuleSyntax": false,
+    "ignoreDeprecations": "6.0",
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
-  }
+    },
+    "types": ["vite/client", "bun-types"]
+  },
+  "include": ["src", "vite.config.ts", "server.ts"],
+  "references": []
 }

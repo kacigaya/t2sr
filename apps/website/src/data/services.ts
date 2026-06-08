@@ -1,164 +1,190 @@
-// Catalogue des services T2SR.
-// Positionnement: peinture, rénovation, travaux intérieurs/extérieurs,
-// installation cuisine, finitions, revêtements, petits travaux de bâtiment.
+import {
+  Building2,
+  Brush,
+  ChefHat,
+  Home,
+  PaintRoller,
+  PanelsTopLeft,
+  Sparkles,
+  Store,
+} from "lucide-react";
+
+export type ServiceSlug =
+  | "placo-platrerie"
+  | "peinture-interieure"
+  | "peinture-exterieure"
+  | "decoration-interieure"
+  | "installation-cuisine"
+  | "renovation-b2b"
+  | "renovation-b2c";
 
 export interface Service {
-  slug: string;
+  slug: ServiceSlug;
   title: string;
-  shortDescription: string;
-  examples: string[];
-  clientInfo: string;
-  icon: string;
+  shortText: string;
+  description: string;
+  href: string;
+  image: string;
+  icon: typeof PanelsTopLeft;
+  audience: "Particuliers" | "Professionnels" | "Tous";
 }
 
 export const SERVICES: Service[] = [
   {
+    slug: "placo-platrerie",
+    title: "Placo & plâtrerie",
+    shortText:
+      "Création de cloisons, doublages, faux plafonds et aménagements intérieurs sur mesure.",
+    description:
+      "T2SR réalise vos travaux de placo et plâtrerie en Île-de-France avec une attention portée à la préparation, aux alignements et aux finitions propres.",
+    href: "/services/placo-platrerie",
+    image: "/images/services/placo-platrerie.webp",
+    icon: PanelsTopLeft,
+    audience: "Tous",
+  },
+  {
     slug: "peinture-interieure",
     title: "Peinture intérieure",
-    shortDescription:
-      "Mise en peinture de murs, plafonds et boiseries pour rafraîchir ou transformer vos pièces.",
-    examples: [
-      "Peinture de séjour, chambres et couloirs",
-      "Plafonds et sous-couches",
-      "Peinture de portes, plinthes et boiseries",
-    ],
-    clientInfo:
-      "Préparez le type de finition souhaité (mat, satin, velours) et les couleurs envisagées pour une estimation plus précise.",
-    icon: "roller",
+    shortText:
+      "Des murs et plafonds propres, modernes et harmonieux pour valoriser vos espaces.",
+    description:
+      "Peinture intérieure en Île-de-France pour appartements, maisons, bureaux et commerces, avec préparation des supports et rendu soigné.",
+    href: "/services/peinture-interieure",
+    image: "/images/services/peinture-interieure.webp",
+    icon: PaintRoller,
+    audience: "Tous",
   },
   {
     slug: "peinture-exterieure",
     title: "Peinture extérieure",
-    shortDescription:
-      "Protection et embellissement des surfaces extérieures exposées aux intempéries.",
-    examples: [
-      "Peinture de façades et murets",
-      "Volets, portails et ferronneries",
-      "Boiseries extérieures",
-    ],
-    clientInfo:
-      "Les travaux extérieurs dépendent de la météo et de l'état du support. Des photos aident à évaluer la préparation nécessaire.",
-    icon: "house",
+    shortText:
+      "Rafraîchissement et protection de vos façades, murs extérieurs et surfaces visibles.",
+    description:
+      "Travaux de peinture extérieure pour protéger et moderniser les surfaces visibles, selon l’état du support et les contraintes météo.",
+    href: "/services/peinture-exterieure",
+    image: "/images/services/peinture-exterieure.webp",
+    icon: Home,
+    audience: "Tous",
   },
   {
-    slug: "vitrerie",
-    title: "Vitrerie",
-    shortDescription:
-      "Travaux de vitrerie pour vos fenêtres, portes et surfaces vitrées.",
-    examples: [
-      "Pose et remplacement de vitrages",
-      "Réparation de surfaces vitrées",
-      "Finitions autour des menuiseries",
-    ],
-    clientInfo:
-      "Indiquez les dimensions approximatives et le type de vitrage si vous les connaissez.",
-    icon: "window",
-  },
-  {
-    slug: "renovation-interieure",
-    title: "Rénovation intérieure",
-    shortDescription:
-      "Rénovation complète ou partielle de vos espaces intérieurs.",
-    examples: [
-      "Rafraîchissement de pièces",
-      "Préparation et reprise des supports",
-      "Coordination de petits travaux liés",
-    ],
-    clientInfo:
-      "Décrivez l'état actuel et le résultat attendu. Plus le projet est détaillé, plus le devis est précis.",
-    icon: "tools",
+    slug: "decoration-interieure",
+    title: "Décoration intérieure",
+    shortText:
+      "Conseils couleurs, finitions décoratives et ambiance adaptée à votre style.",
+    description:
+      "Décoration intérieure et finitions pour créer une ambiance cohérente, moderne et durable dans chaque pièce.",
+    href: "/services/decoration-interieure",
+    image: "/images/services/decoration-interieure.webp",
+    icon: Sparkles,
+    audience: "Particuliers",
   },
   {
     slug: "installation-cuisine",
     title: "Installation de cuisine",
-    shortDescription:
-      "Montage et installation d'éléments de cuisine et finitions associées.",
-    examples: [
-      "Montage de meubles de cuisine",
-      "Pose et ajustements",
-      "Finitions et raccords",
-    ],
-    clientInfo:
-      "Précisez si la cuisine est déjà achetée et son fournisseur, ainsi que les contraintes de la pièce.",
-    icon: "kitchen",
+    shortText:
+      "Pose soignée de cuisines avec finitions précises et intégration propre.",
+    description:
+      "Installation de cuisine en Île-de-France, avec montage, ajustements, finitions et intégration propre dans l’espace existant.",
+    href: "/services/installation-cuisine",
+    image: "/images/services/installation-cuisine.webp",
+    icon: ChefHat,
+    audience: "Particuliers",
   },
   {
-    slug: "revetements-muraux",
-    title: "Revêtements muraux",
-    shortDescription:
-      "Pose de revêtements muraux pour décorer et protéger vos murs.",
-    examples: [
-      "Pose de papier peint et toile",
-      "Revêtements décoratifs",
-      "Préparation des supports",
-    ],
-    clientInfo:
-      "Indiquez le type de revêtement souhaité et la surface concernée.",
-    icon: "wall",
+    slug: "renovation-b2b",
+    title: "Rénovation B2B",
+    shortText:
+      "Travaux pour bureaux, commerces, restaurants, agences et locaux professionnels.",
+    description:
+      "Travaux organisés pour entreprises, commerces, agences et locaux professionnels en Île-de-France.",
+    href: "/professionnels",
+    image: "/images/services/renovation-b2b.webp",
+    icon: Store,
+    audience: "Professionnels",
   },
   {
-    slug: "revetements-sols",
-    title: "Revêtements de sols",
-    shortDescription:
-      "Pose de revêtements de sol adaptés à chaque pièce.",
-    examples: [
-      "Pose de sols souples",
-      "Préparation et ragréage léger",
-      "Finitions et plinthes",
-    ],
-    clientInfo:
-      "Mesurez la surface au sol et précisez le type de revêtement envisagé.",
-    icon: "floor",
-  },
-  {
-    slug: "travaux-finition",
-    title: "Travaux de finition",
-    shortDescription:
-      "Reprises, raccords et retouches pour finir le chantier proprement.",
-    examples: [
-      "Reprises et raccords",
-      "Joints et finitions",
-      "Retouches après travaux",
-    ],
-    clientInfo:
-      "Listez les points à finaliser pour un chiffrage adapté.",
-    icon: "brush",
-  },
-  {
-    slug: "petits-travaux",
-    title: "Petits travaux de bâtiment",
-    shortDescription:
-      "Interventions ponctuelles et petits travaux pour entretenir votre logement.",
-    examples: [
-      "Petites réparations",
-      "Travaux ponctuels",
-      "Entretien courant",
-    ],
-    clientInfo:
-      "Décrivez précisément l'intervention souhaitée et son urgence éventuelle.",
-    icon: "wrench",
-  },
-  {
-    slug: "travaux-exterieurs",
-    title: "Travaux extérieurs",
-    shortDescription:
-      "Travaux de façade et entretien des extérieurs.",
-    examples: [
-      "Travaux de façade",
-      "Entretien extérieur",
-      "Finitions extérieures",
-    ],
-    clientInfo:
-      "Des photos de l'existant facilitent une première estimation.",
-    icon: "outdoor",
+    slug: "renovation-b2c",
+    title: "Rénovation B2C",
+    shortText:
+      "Accompagnement des particuliers pour maisons, appartements et projets de rénovation.",
+    description:
+      "Rénovation maison et rénovation appartement en Île-de-France, du cadrage du besoin aux finitions.",
+    href: "/particuliers",
+    image: "/images/services/renovation-b2c.webp",
+    icon: Building2,
+    audience: "Particuliers",
   },
 ];
 
-// Catégories utilisées sur la page Réalisations.
-export const REALISATION_CATEGORIES = [
-  "Peinture",
-  "Cuisine",
-  "Rénovation",
-  "Extérieur",
-  "Sols",
+export const ADVANTAGES = [
+  "Devis clair",
+  "Intervention en Île-de-France",
+  "Travail propre",
+  "Finitions soignées",
+  "Respect des délais",
+  "Accompagnement personnalisé",
+] as const;
+
+export const PROCESS_STEPS = [
+  "Demande de devis",
+  "Échange sur le projet",
+  "Visite ou estimation",
+  "Réalisation des travaux",
+  "Livraison du chantier",
+] as const;
+
+export const REALISATIONS = [
+  {
+    title: "Rénovation peinture appartement",
+    service: "Peinture intérieure",
+    city: "Paris",
+  },
+  {
+    title: "Pose cuisine moderne",
+    service: "Installation de cuisine",
+    city: "Boulogne-Billancourt",
+  },
+  {
+    title: "Travaux placo bureaux",
+    service: "Placo & plâtrerie",
+    city: "Saint-Denis",
+  },
+  {
+    title: "Peinture extérieure maison",
+    service: "Peinture extérieure",
+    city: "Versailles",
+  },
+] as const;
+
+export const FAQS = [
+  {
+    question: "Intervenez-vous dans toute l’Île-de-France ?",
+    answer:
+      "T2SR étudie les demandes en Île-de-France, avec une priorité autour de Savigny-le-Temple, de la Seine-et-Marne et des secteurs proches.",
+  },
+  {
+    question: "Proposez-vous des devis gratuits ?",
+    answer:
+      "Oui, vous pouvez envoyer une demande de devis gratuite avec les informations principales et des photos du projet si vous en avez.",
+  },
+  {
+    question: "Travaillez-vous avec les professionnels ?",
+    answer:
+      "Oui, T2SR intervient pour les bureaux, commerces, restaurants, agences et locaux professionnels.",
+  },
+  {
+    question: "Pouvez-vous gérer plusieurs services sur le même chantier ?",
+    answer:
+      "Oui, un projet peut regrouper placo, peinture, décoration et installation de cuisine selon les besoins du chantier.",
+  },
+  {
+    question: "Installez-vous des cuisines complètes ?",
+    answer:
+      "T2SR peut prendre en charge la pose de cuisine et les finitions associées. Les raccordements spécifiques sont cadrés selon le projet.",
+  },
+  {
+    question: "Peut-on envoyer des photos du projet ?",
+    answer:
+      "Oui, le formulaire permet d’ajouter des photos pour faciliter une première estimation.",
+  },
 ] as const;

@@ -4,6 +4,7 @@ export interface QuoteInput {
   fullName: string;
   phone: string;
   email: string;
+  customerType: string;
   city: string;
   address: string;
   workType: string;

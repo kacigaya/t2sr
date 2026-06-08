@@ -2,7 +2,7 @@
   "name": "t2sr",
   "version": "0.1.0",
   "private": true,
-  "description": "Site vitrine T2SR + API Hono pour demandes de devis",
+  "description": "Site TanStack Start T2SR + API Hono pour demandes de devis",
   "workspaces": [
     "apps/website",
     "apps/api"
@@ -13,6 +13,7 @@
     "dev:api": "bun run --cwd apps/api dev",
     "build": "bun run --cwd apps/website build",
     "build:website": "bun run --cwd apps/website build",
+    "start:website": "bun run --cwd apps/website start",
     "start:api": "bun run --cwd apps/api start",
     "preview": "bun run --cwd apps/website preview"
   },

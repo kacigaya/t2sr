@@ -6,6 +6,7 @@ function BaseForm(): FormData {
   form.set("fullName", "Jean Dupont");
   form.set("phone", "06 12 34 56 78");
   form.set("email", "jean@example.com");
+  form.set("customerType", "particulier");
   form.set("city", "Savigny-le-Temple");
   form.set("workType", "peinture-interieure");
   form.set("description", "Repeindre le séjour.");

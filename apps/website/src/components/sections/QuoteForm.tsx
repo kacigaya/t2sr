@@ -1,0 +1,199 @@
+import { useMemo, useState } from "react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { SERVICES } from "@/data/services";
+import { SITE } from "@/data/site";
+import { publicApiUrl } from "@/lib/utils";
+import { Button } from "@/components/ui/Button";
+import { Container, Section } from "@/components/ui/Container";
+import { Field, Input, NativeSelect, Textarea } from "@/components/ui/Field";
+import { Reveal } from "@/components/ui/Reveal";
+
+interface Errors {
+  [key: string]: string;
+}
+
+const deadlines = [
+  ["urgent", "Urgent"],
+  ["1-mois", "Sous 1 mois"],
+  ["3-mois", "Sous 3 mois"],
+  ["flexible", "Flexible"],
+] as const;
+
+const budgets = [
+  ["", "Non précisé"],
+  ["moins-1000", "Moins de 1 000 €"],
+  ["1000-3000", "1 000 € à 3 000 €"],
+  ["3000-10000", "3 000 € à 10 000 €"],
+  ["plus-10000", "Plus de 10 000 €"],
+  ["a-definir", "À définir"],
+] as const;
+
+export function QuoteSection() {
+  const phone = SITE.phone as string;
+  const email = SITE.email as string;
+  const telHref = phone ? `tel:${phone.replace(/\s+/g, "")}` : undefined;
+  const whatsappHref = phone ? `https://wa.me/${phone.replace(/\D/g, "")}` : undefined;
+  const emailHref = email ? `mailto:${email}` : undefined;
+
+  return (
+    <Section id="devis" className="bg-white">
+      <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <Reveal>
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-terracotta">Contact</p>
+          <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-ink lg:text-5xl">
+            Recevoir votre devis gratuit
+          </h2>
+          <p className="mt-5 leading-8 text-copy">
+            Décrivez votre chantier en Île-de-France. Plus votre demande est précise, plus le retour peut être clair.
+          </p>
+          <div className="mt-8 grid gap-3">
+            <ContactButton icon={<Phone className="size-5" />} label="Appeler T2SR" href={telHref} />
+            <ContactButton icon={<MessageCircle className="size-5" />} label="WhatsApp" href={whatsappHref} />
+            <ContactButton icon={<Mail className="size-5" />} label="Envoyer un email" href={emailHref} />
+          </div>
+        </Reveal>
+        <Reveal>
+          <QuoteForm />
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}
+
+function ContactButton({ icon, label, href }: { icon: React.ReactNode; label: string; href?: string }) {
+  return (
+    <a
+      href={href ?? "#devis"}
+      className="flex items-center gap-3 rounded-xl border border-ink/10 bg-soft px-5 py-4 font-extrabold text-ink transition hover:border-terracotta hover:text-terracotta"
+    >
+      <span className="text-terracotta">{icon}</span>
+      {label}
+      {!href && <span className="ml-auto text-xs text-copy">à compléter</span>}
+    </a>
+  );
+}
+
+function QuoteForm() {
+  const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+  const serviceOptions = useMemo(() => SERVICES, []);
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const nextErrors = validate(formData);
+    setErrors(nextErrors);
+    setMessage("");
+
+    if (Object.keys(nextErrors).length > 0) return;
+
+    setStatus("sending");
+    try {
+      const response = await fetch(`${publicApiUrl()}/api/quotes`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Erreur lors de l’envoi.");
+      }
+      form.reset();
+      setStatus("success");
+      setMessage("Votre demande a bien été envoyée. T2SR reviendra vers vous dès que possible.");
+    } catch (error) {
+      setStatus("error");
+      setMessage(error instanceof Error ? error.message : "Erreur lors de l’envoi.");
+    }
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="rounded-xl border border-ink/10 bg-soft p-5 shadow-premium sm:p-8" noValidate>
+      <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Nom et prénom" error={errors.fullName}>
+          <Input name="fullName" autoComplete="name" />
+        </Field>
+        <Field label="Téléphone" error={errors.phone}>
+          <Input name="phone" type="tel" autoComplete="tel" />
+        </Field>
+        <Field label="Email" error={errors.email}>
+          <Input name="email" type="email" autoComplete="email" />
+        </Field>
+        <Field label="Type de client" error={errors.customerType}>
+          <NativeSelect name="customerType">
+            <option value="">Sélectionnez</option>
+            <option value="particulier">Particulier</option>
+            <option value="professionnel">Professionnel</option>
+          </NativeSelect>
+        </Field>
+        <Field label="Service souhaité" error={errors.workType}>
+          <NativeSelect name="workType">
+            <option value="">Sélectionnez</option>
+            {serviceOptions.map((service) => (
+              <option key={service.slug} value={service.slug}>{service.title}</option>
+            ))}
+          </NativeSelect>
+        </Field>
+        <Field label="Ville du chantier" error={errors.city}>
+          <Input name="city" autoComplete="address-level2" />
+        </Field>
+        <Field label="Délai souhaité" error={errors.deadline}>
+          <NativeSelect name="deadline">
+            <option value="">Sélectionnez</option>
+            {deadlines.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+          </NativeSelect>
+        </Field>
+        <Field label="Budget approximatif optionnel">
+          <NativeSelect name="budget">
+            {budgets.map(([value, label]) => <option key={label} value={value}>{label}</option>)}
+          </NativeSelect>
+        </Field>
+      </div>
+      <div className="mt-5 grid gap-5">
+        <Field label="Message" error={errors.description}>
+          <Textarea name="description" maxLength={2000} />
+        </Field>
+        <Field label="Upload photo optionnel">
+          <Input name="files" type="file" multiple accept="image/jpeg,image/png,image/webp" />
+        </Field>
+        <label className="flex gap-3 rounded-xl bg-white p-4 text-sm font-bold text-copy">
+          <input name="consent" value="true" type="checkbox" className="mt-1 size-4 accent-terracotta" />
+          <span>
+            J’accepte d’être recontacté concernant ma demande.
+            {errors.consent && <span className="mt-1 block text-xs text-red-600">{errors.consent}</span>}
+          </span>
+        </label>
+        {message && (
+          <div className={status === "success" ? "rounded-xl bg-green-50 p-4 text-sm font-bold text-green-700" : "rounded-xl bg-red-50 p-4 text-sm font-bold text-red-700"} role="status">
+            {message}
+          </div>
+        )}
+        <Button type="submit" disabled={status === "sending"} className="w-full">
+          {status === "sending" ? "Envoi en cours..." : "Recevoir mon devis gratuit"}
+        </Button>
+      </div>
+    </form>
+  );
+}
+
+function validate(formData: FormData) {
+  const errors: Errors = {};
+  const required = ["fullName", "phone", "email", "customerType", "workType", "city", "deadline", "description"] as const;
+  for (const field of required) {
+    if (!String(formData.get(field) ?? "").trim()) errors[field] = "Champ obligatoire.";
+  }
+  const email = String(formData.get("email") ?? "");
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = "Email invalide.";
+  const phone = String(formData.get("phone") ?? "");
+  if (phone && !/^[+]?[\d\s().-]{6,20}$/.test(phone)) errors.phone = "Téléphone invalide.";
+  if (!formData.get("consent")) errors.consent = "Le consentement est obligatoire.";
+  const files = formData.getAll("files").filter((file): file is File => file instanceof File && file.size > 0);
+  if (files.length > 5) errors.files = "Maximum 5 fichiers.";
+  for (const file of files) {
+    if (file.size > 5 * 1024 * 1024) errors.files = "Chaque fichier doit faire 5 Mo maximum.";
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) errors.files = "Formats acceptés : JPG, PNG ou WebP.";
+  }
+  return errors;
+}

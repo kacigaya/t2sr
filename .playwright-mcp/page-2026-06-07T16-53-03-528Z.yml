@@ -1,0 +1,388 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Accueil T2SR" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: T2SR
+      - navigation "Navigation principale" [ref=e5]:
+        - link "Accueil" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e7] [cursor=pointer]:
+          - /url: /services
+        - link "Réalisations" [ref=e8] [cursor=pointer]:
+          - /url: /realisations
+        - link "Professionnels" [ref=e9] [cursor=pointer]:
+          - /url: /professionnels
+        - link "Particuliers" [ref=e10] [cursor=pointer]:
+          - /url: /particuliers
+        - link "À propos" [ref=e11] [cursor=pointer]:
+          - /url: /a-propos
+        - link "Contact" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+      - link "Devis gratuit" [ref=e14] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - img "Artisan plaquiste travaillant sur un mur dans un chantier intérieur propre" [ref=e17]
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Entreprise de rénovation Île-de-France
+        - heading "T2SR transforme vos espaces avec des travaux propres, modernes et durables" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Placo, peinture, décoration et installation de cuisine pour particuliers et professionnels en Île-de-France.
+        - generic [ref=e25]:
+          - link "Demander un devis gratuit" [ref=e26] [cursor=pointer]:
+            - /url: /contact
+            - text: Demander un devis gratuit
+            - img [ref=e27]
+          - link "Découvrir nos services" [ref=e29] [cursor=pointer]:
+            - /url: /services
+        - list [ref=e30]:
+          - listitem [ref=e31]:
+            - img [ref=e32]
+            - text: Intervention en Île-de-France
+          - listitem [ref=e35]:
+            - img [ref=e36]
+            - text: Devis clair et rapide
+          - listitem [ref=e39]:
+            - img [ref=e40]
+            - text: Travaux intérieurs & extérieurs
+    - generic [ref=e44]:
+      - generic [ref=e47]:
+        - paragraph [ref=e48]: Services
+        - heading "Des services qui s’empilent au rythme de votre scroll" [level=2] [ref=e49]
+        - paragraph [ref=e50]: "Une lecture premium des prestations T2SR : placo, peinture, décoration, cuisine et rénovation pour tous vos espaces."
+      - generic [ref=e52]:
+        - link "Tous Placo & plâtrerie Création de cloisons, doublages, faux plafonds et aménagements intérieurs sur mesure. Voir le service" [ref=e54] [cursor=pointer]:
+          - /url: /services/placo-platrerie
+          - generic [ref=e56]:
+            - img [ref=e58]
+            - paragraph [ref=e60]: Tous
+            - heading "Placo & plâtrerie" [level=3] [ref=e61]
+            - paragraph [ref=e62]: Création de cloisons, doublages, faux plafonds et aménagements intérieurs sur mesure.
+            - generic [ref=e63]:
+              - text: Voir le service
+              - img [ref=e64]
+        - link "Tous Peinture intérieure Des murs et plafonds propres, modernes et harmonieux pour valoriser vos espaces. Voir le service" [ref=e67] [cursor=pointer]:
+          - /url: /services/peinture-interieure
+          - generic [ref=e69]:
+            - img [ref=e71]
+            - paragraph [ref=e75]: Tous
+            - heading "Peinture intérieure" [level=3] [ref=e76]
+            - paragraph [ref=e77]: Des murs et plafonds propres, modernes et harmonieux pour valoriser vos espaces.
+            - generic [ref=e78]:
+              - text: Voir le service
+              - img [ref=e79]
+        - link "Tous Peinture extérieure Rafraîchissement et protection de vos façades, murs extérieurs et surfaces visibles. Voir le service" [ref=e82] [cursor=pointer]:
+          - /url: /services/peinture-exterieure
+          - generic [ref=e84]:
+            - img [ref=e86]
+            - paragraph [ref=e89]: Tous
+            - heading "Peinture extérieure" [level=3] [ref=e90]
+            - paragraph [ref=e91]: Rafraîchissement et protection de vos façades, murs extérieurs et surfaces visibles.
+            - generic [ref=e92]:
+              - text: Voir le service
+              - img [ref=e93]
+        - link "Particuliers Décoration intérieure Conseils couleurs, finitions décoratives et ambiance adaptée à votre style. Voir le service" [ref=e96] [cursor=pointer]:
+          - /url: /services/decoration-interieure
+          - generic [ref=e98]:
+            - img [ref=e100]
+            - paragraph [ref=e103]: Particuliers
+            - heading "Décoration intérieure" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Conseils couleurs, finitions décoratives et ambiance adaptée à votre style.
+            - generic [ref=e106]:
+              - text: Voir le service
+              - img [ref=e107]
+        - link "Particuliers Installation de cuisine Pose soignée de cuisines avec finitions précises et intégration propre. Voir le service" [ref=e110] [cursor=pointer]:
+          - /url: /services/installation-cuisine
+          - generic [ref=e112]:
+            - img [ref=e114]
+            - paragraph [ref=e116]: Particuliers
+            - heading "Installation de cuisine" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Pose soignée de cuisines avec finitions précises et intégration propre.
+            - generic [ref=e119]:
+              - text: Voir le service
+              - img [ref=e120]
+        - link "Professionnels Rénovation B2B Travaux pour bureaux, commerces, restaurants, agences et locaux professionnels. Voir le service" [ref=e123] [cursor=pointer]:
+          - /url: /professionnels
+          - generic [ref=e125]:
+            - img [ref=e127]
+            - paragraph [ref=e131]: Professionnels
+            - heading "Rénovation B2B" [level=3] [ref=e132]
+            - paragraph [ref=e133]: Travaux pour bureaux, commerces, restaurants, agences et locaux professionnels.
+            - generic [ref=e134]:
+              - text: Voir le service
+              - img [ref=e135]
+        - link "Particuliers Rénovation B2C Accompagnement des particuliers pour maisons, appartements et projets de rénovation. Voir le service" [ref=e138] [cursor=pointer]:
+          - /url: /particuliers
+          - generic [ref=e140]:
+            - img [ref=e142]
+            - paragraph [ref=e146]: Particuliers
+            - heading "Rénovation B2C" [level=3] [ref=e147]
+            - paragraph [ref=e148]: Accompagnement des particuliers pour maisons, appartements et projets de rénovation.
+            - generic [ref=e149]:
+              - text: Voir le service
+              - img [ref=e150]
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - img [ref=e157]
+        - heading "Rénovez votre maison ou appartement avec une équipe de confiance" [level=2] [ref=e160]
+        - paragraph [ref=e161]: "T2SR accompagne les particuliers dans leurs projets de rénovation intérieure et extérieure : peinture, placo, décoration et pose de cuisine."
+        - link "Décrire mon projet" [ref=e162] [cursor=pointer]:
+          - /url: /particuliers
+          - text: Décrire mon projet
+          - img [ref=e163]
+      - generic [ref=e165]:
+        - img [ref=e167]
+        - heading "Des travaux organisés pour vos bureaux, commerces et locaux professionnels" [level=2] [ref=e171]
+        - paragraph [ref=e172]: T2SR intervient auprès des entreprises, commerces, agences, restaurants et locaux professionnels en Île-de-France.
+        - link "Demander un devis professionnel" [ref=e173] [cursor=pointer]:
+          - /url: /professionnels
+          - text: Demander un devis professionnel
+          - img [ref=e174]
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - paragraph [ref=e179]: Pourquoi choisir T2SR ?
+        - heading "Une approche claire pour des travaux propres et maîtrisés" [level=2] [ref=e180]
+      - generic [ref=e181]:
+        - generic [ref=e182]:
+          - img [ref=e183]
+          - heading "Devis clair" [level=3] [ref=e186]
+        - generic [ref=e187]:
+          - img [ref=e188]
+          - heading "Intervention en Île-de-France" [level=3] [ref=e191]
+        - generic [ref=e192]:
+          - img [ref=e193]
+          - heading "Travail propre" [level=3] [ref=e196]
+        - generic [ref=e197]:
+          - img [ref=e198]
+          - heading "Finitions soignées" [level=3] [ref=e201]
+        - generic [ref=e202]:
+          - img [ref=e203]
+          - heading "Respect des délais" [level=3] [ref=e206]
+        - generic [ref=e207]:
+          - img [ref=e208]
+          - heading "Accompagnement personnalisé" [level=3] [ref=e211]
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - paragraph [ref=e215]: Notre méthode
+        - heading "Un processus simple, du premier échange à la livraison" [level=2] [ref=e216]
+      - list [ref=e217]:
+        - listitem [ref=e218]:
+          - generic [ref=e219]: "1"
+          - heading "Demande de devis" [level=3] [ref=e220]
+        - listitem [ref=e221]:
+          - generic [ref=e222]: "2"
+          - heading "Échange sur le projet" [level=3] [ref=e223]
+        - listitem [ref=e224]:
+          - generic [ref=e225]: "3"
+          - heading "Visite ou estimation" [level=3] [ref=e226]
+        - listitem [ref=e227]:
+          - generic [ref=e228]: "4"
+          - heading "Réalisation des travaux" [level=3] [ref=e229]
+        - listitem [ref=e230]:
+          - generic [ref=e231]: "5"
+          - heading "Livraison du chantier" [level=3] [ref=e232]
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - paragraph [ref=e237]: Réalisations
+          - heading "Des placeholders avant/après prêts à remplacer par vos vrais chantiers" [level=2] [ref=e238]
+          - paragraph [ref=e239]: À remplacer par vos vraies photos, avis ou certifications.
+        - link "Voir les réalisations" [ref=e240] [cursor=pointer]:
+          - /url: /realisations
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - img "Image placeholder pour Rénovation peinture appartement à Paris" [ref=e243]
+          - generic [ref=e244]:
+            - paragraph [ref=e245]: Peinture intérieure
+            - heading "Rénovation peinture appartement" [level=3] [ref=e246]
+            - paragraph [ref=e247]: Paris, Île-de-France
+            - link "Voir le projet" [ref=e248] [cursor=pointer]:
+              - /url: /realisations
+              - text: Voir le projet
+              - img [ref=e249]
+        - generic [ref=e251]:
+          - img "Image placeholder pour Pose cuisine moderne à Boulogne-Billancourt" [ref=e252]
+          - generic [ref=e253]:
+            - paragraph [ref=e254]: Installation de cuisine
+            - heading "Pose cuisine moderne" [level=3] [ref=e255]
+            - paragraph [ref=e256]: Boulogne-Billancourt, Île-de-France
+            - link "Voir le projet" [ref=e257] [cursor=pointer]:
+              - /url: /realisations
+              - text: Voir le projet
+              - img [ref=e258]
+        - generic [ref=e260]:
+          - img "Image placeholder pour Travaux placo bureaux à Saint-Denis" [ref=e261]
+          - generic [ref=e262]:
+            - paragraph [ref=e263]: Placo & plâtrerie
+            - heading "Travaux placo bureaux" [level=3] [ref=e264]
+            - paragraph [ref=e265]: Saint-Denis, Île-de-France
+            - link "Voir le projet" [ref=e266] [cursor=pointer]:
+              - /url: /realisations
+              - text: Voir le projet
+              - img [ref=e267]
+        - generic [ref=e269]:
+          - img "Image placeholder pour Peinture extérieure maison à Versailles" [ref=e270]
+          - generic [ref=e271]:
+            - paragraph [ref=e272]: Peinture extérieure
+            - heading "Peinture extérieure maison" [level=3] [ref=e273]
+            - paragraph [ref=e274]: Versailles, Île-de-France
+            - link "Voir le projet" [ref=e275] [cursor=pointer]:
+              - /url: /realisations
+              - text: Voir le projet
+              - img [ref=e276]
+    - generic [ref=e279]:
+      - generic [ref=e280]:
+        - paragraph [ref=e281]: Avis clients
+        - heading "Des retours à remplacer par vos vrais témoignages" [level=2] [ref=e282]
+      - generic [ref=e283]:
+        - paragraph [ref=e285]: “Avis exemple à remplacer par un vrai avis client. Le chantier a été clair, propre et bien expliqué.”
+        - paragraph [ref=e287]: “Avis exemple à remplacer par un vrai avis client. L’équipe a accompagné le projet avec sérieux.”
+        - paragraph [ref=e289]: “Avis exemple à remplacer par un vrai avis client. Les finitions correspondent au rendu attendu.”
+    - generic [ref=e291]:
+      - generic [ref=e292]:
+        - paragraph [ref=e293]: FAQ
+        - heading "Les questions fréquentes avant de lancer vos travaux" [level=2] [ref=e294]
+      - region [ref=e296]:
+        - heading "Intervenez-vous dans toute l’Île-de-France ?" [level=3] [ref=e298]:
+          - button "Intervenez-vous dans toute l’Île-de-France ?" [ref=e299]:
+            - text: Intervenez-vous dans toute l’Île-de-France ?
+            - img [ref=e300]
+        - heading "Proposez-vous des devis gratuits ?" [level=3] [ref=e302]:
+          - button "Proposez-vous des devis gratuits ?" [ref=e303]:
+            - text: Proposez-vous des devis gratuits ?
+            - img [ref=e304]
+        - heading "Travaillez-vous avec les professionnels ?" [level=3] [ref=e306]:
+          - button "Travaillez-vous avec les professionnels ?" [ref=e307]:
+            - text: Travaillez-vous avec les professionnels ?
+            - img [ref=e308]
+        - heading "Pouvez-vous gérer plusieurs services sur le même chantier ?" [level=3] [ref=e310]:
+          - button "Pouvez-vous gérer plusieurs services sur le même chantier ?" [ref=e311]:
+            - text: Pouvez-vous gérer plusieurs services sur le même chantier ?
+            - img [ref=e312]
+        - heading "Installez-vous des cuisines complètes ?" [level=3] [ref=e314]:
+          - button "Installez-vous des cuisines complètes ?" [ref=e315]:
+            - text: Installez-vous des cuisines complètes ?
+            - img [ref=e316]
+        - heading "Peut-on envoyer des photos du projet ?" [level=3] [ref=e318]:
+          - button "Peut-on envoyer des photos du projet ?" [ref=e319]:
+            - text: Peut-on envoyer des photos du projet ?
+            - img [ref=e320]
+    - generic [ref=e322]:
+      - generic [ref=e323]:
+        - paragraph [ref=e324]: Contact
+        - heading "Recevoir votre devis gratuit" [level=2] [ref=e325]
+        - paragraph [ref=e326]: Décrivez votre chantier en Île-de-France. Plus votre demande est précise, plus le retour peut être clair.
+        - generic [ref=e327]:
+          - link "Appeler T2SR à compléter" [ref=e328] [cursor=pointer]:
+            - /url: "#devis"
+            - img [ref=e330]
+            - text: Appeler T2SR
+            - generic [ref=e332]: à compléter
+          - link "WhatsApp à compléter" [ref=e333] [cursor=pointer]:
+            - /url: "#devis"
+            - img [ref=e335]
+            - text: WhatsApp
+            - generic [ref=e337]: à compléter
+          - link "Envoyer un email à compléter" [ref=e338] [cursor=pointer]:
+            - /url: "#devis"
+            - img [ref=e340]
+            - text: Envoyer un email
+            - generic [ref=e343]: à compléter
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - generic [ref=e347]:
+            - generic [ref=e348]: Nom et prénom
+            - textbox "Nom et prénom" [ref=e349]
+          - generic [ref=e350]:
+            - generic [ref=e351]: Téléphone
+            - textbox "Téléphone" [ref=e352]
+          - generic [ref=e353]:
+            - generic [ref=e354]: Email
+            - textbox "Email" [ref=e355]
+          - generic [ref=e356]:
+            - generic [ref=e357]: Type de client
+            - combobox "Type de client" [ref=e358]:
+              - option "Sélectionnez" [selected]
+              - option "Particulier"
+              - option "Professionnel"
+          - generic [ref=e359]:
+            - generic [ref=e360]: Service souhaité
+            - combobox "Service souhaité" [ref=e361]:
+              - option "Sélectionnez" [selected]
+              - option "Placo & plâtrerie"
+              - option "Peinture intérieure"
+              - option "Peinture extérieure"
+              - option "Décoration intérieure"
+              - option "Installation de cuisine"
+              - option "Rénovation B2B"
+              - option "Rénovation B2C"
+          - generic [ref=e362]:
+            - generic [ref=e363]: Ville du chantier
+            - textbox "Ville du chantier" [ref=e364]
+          - generic [ref=e365]:
+            - generic [ref=e366]: Délai souhaité
+            - combobox "Délai souhaité" [ref=e367]:
+              - option "Sélectionnez" [selected]
+              - option "Urgent"
+              - option "Sous 1 mois"
+              - option "Sous 3 mois"
+              - option "Flexible"
+          - generic [ref=e368]:
+            - generic [ref=e369]: Budget approximatif optionnel
+            - combobox "Budget approximatif optionnel" [ref=e370]:
+              - option "Non précisé" [selected]
+              - option "Moins de 1 000 €"
+              - option "1 000 € à 3 000 €"
+              - option "3 000 € à 10 000 €"
+              - option "Plus de 10 000 €"
+              - option "À définir"
+        - generic [ref=e371]:
+          - generic [ref=e372]:
+            - generic [ref=e373]: Message
+            - textbox "Message" [ref=e374]
+          - generic [ref=e375]:
+            - generic [ref=e376]: Upload photo optionnel
+            - button "Upload photo optionnel" [ref=e377]
+          - generic [ref=e378]:
+            - checkbox "J’accepte d’être recontacté concernant ma demande." [ref=e379]
+            - generic [ref=e380]: J’accepte d’être recontacté concernant ma demande.
+          - button "Recevoir mon devis gratuit" [ref=e381]
+  - contentinfo [ref=e382]:
+    - generic [ref=e383]:
+      - generic [ref=e384]:
+        - generic [ref=e385]: T2SR
+        - paragraph [ref=e386]: Placo, peinture, décoration et installation de cuisine pour particuliers et professionnels en Île-de-France.
+        - paragraph [ref=e387]: À remplacer par vos vraies photos, avis ou certifications.
+      - generic [ref=e388]:
+        - heading "Services" [level=2] [ref=e389]
+        - generic [ref=e390]:
+          - link "Placo & plâtrerie" [ref=e391] [cursor=pointer]:
+            - /url: /services/placo-platrerie
+          - link "Peinture intérieure" [ref=e392] [cursor=pointer]:
+            - /url: /services/peinture-interieure
+          - link "Peinture extérieure" [ref=e393] [cursor=pointer]:
+            - /url: /services/peinture-exterieure
+          - link "Décoration intérieure" [ref=e394] [cursor=pointer]:
+            - /url: /services/decoration-interieure
+          - link "Installation de cuisine" [ref=e395] [cursor=pointer]:
+            - /url: /services/installation-cuisine
+      - generic [ref=e396]:
+        - heading "Zone d’intervention" [level=2] [ref=e397]
+        - generic [ref=e398]:
+          - generic [ref=e399]: Savigny-le-Temple
+          - generic [ref=e400]: Seine-et-Marne
+          - generic [ref=e401]: Paris
+          - generic [ref=e402]: Boulogne-Billancourt
+          - generic [ref=e403]: Saint-Denis
+      - generic [ref=e404]:
+        - heading "Contact" [level=2] [ref=e405]
+        - generic [ref=e406]:
+          - link "Demander un devis" [ref=e407] [cursor=pointer]:
+            - /url: /contact
+          - generic [ref=e408]: Téléphone à compléter
+          - generic [ref=e409]: Email à compléter
+          - link "Mentions légales" [ref=e410] [cursor=pointer]:
+            - /url: /mentions-legales
+          - link "Politique de confidentialité" [ref=e411] [cursor=pointer]:
+            - /url: /politique-confidentialite
+    - generic [ref=e412]: © 2026 T2SR. Tous droits réservés.

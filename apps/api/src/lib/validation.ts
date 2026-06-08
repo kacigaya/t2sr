@@ -43,6 +43,26 @@ const ALLOWED_DEADLINE = [
   "flexible",
 ];
 
+const ALLOWED_CUSTOMER_TYPE = ["particulier", "professionnel"];
+
+const ALLOWED_WORK_TYPE = [
+  "placo-platrerie",
+  "peinture-interieure",
+  "peinture-exterieure",
+  "decoration-interieure",
+  "installation-cuisine",
+  "renovation-b2b",
+  "renovation-b2c",
+  // Compatibilite avec l'ancien catalogue de services.
+  "vitrerie",
+  "renovation-interieure",
+  "revetements-muraux",
+  "revetements-sols",
+  "travaux-finition",
+  "petits-travaux",
+  "travaux-exterieurs",
+];
+
 const ALLOWED_ROOMS = [
   "cuisine",
   "salon",
@@ -80,6 +100,7 @@ export function ValidateQuote(form: FormData): ValidationResult {
   const fullName = Trim(form.get("fullName"));
   const phone = Trim(form.get("phone"));
   const email = Trim(form.get("email"));
+  const customerType = Trim(form.get("customerType"));
   const city = Trim(form.get("city"));
   const address = Trim(form.get("address"));
   const workType = Trim(form.get("workType"));
@@ -101,11 +122,15 @@ export function ValidateQuote(form: FormData): ValidationResult {
   if (!email) errors.push("L'email est obligatoire.");
   else if (!EMAIL_RE.test(email) || email.length > MAX_SHORT) errors.push("L'email est invalide.");
 
+  if (!customerType) errors.push("Le type de client est obligatoire.");
+  else if (!ALLOWED_CUSTOMER_TYPE.includes(customerType)) errors.push("Type de client invalide.");
+
   if (!city) errors.push("La ville est obligatoire.");
   if (city.length > MAX_SHORT) errors.push("La ville est trop longue.");
 
   if (!workType) errors.push("Le type de travaux est obligatoire.");
   if (workType.length > MAX_SHORT) errors.push("Le type de travaux est trop long.");
+  if (workType && !ALLOWED_WORK_TYPE.includes(workType)) errors.push("Type de travaux invalide.");
 
   if (!description) errors.push("La description du projet est obligatoire.");
   if (description.length > MAX_TEXT) errors.push("La description est trop longue.");
@@ -129,6 +154,7 @@ export function ValidateQuote(form: FormData): ValidationResult {
     fullName,
     phone,
     email,
+    customerType,
     city,
     address,
     workType,
